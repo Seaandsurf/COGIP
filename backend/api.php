@@ -26,8 +26,8 @@ $routes = [
     '/users' => fn() => (new UsersController())->getAll_users(),
   
 ];
-/*
+
 $path = $_SERVER['PATH_INFO'];
 $route = $routes[$path] ?? fn() => print('404 Not Found');
 $route();
-*/
+

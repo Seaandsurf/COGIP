@@ -1,5 +1,5 @@
 <?php 
-
+require_once('./backend/models/date.php');
 class usersController {
     private $pdo;
 
@@ -11,7 +11,7 @@ class usersController {
         $usersQuery = $this->pdo->query('SELECT * FROM users');
         $users= $usersQuery->fetchAll(PDO::FETCH_ASSOC);
         formatDataDates($users, ['created_at', 'updated_at']);
-        
+
         return $users;
     }
 }

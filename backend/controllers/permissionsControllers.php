@@ -1,5 +1,5 @@
 <?php 
-
+require_once('./backend/models/date.php');
 class permissionsController {
     private $pdo;
 
@@ -11,7 +11,7 @@ class permissionsController {
         $permissionsQuery = $this->pdo->query('SELECT * FROM permissions');
         $permissions= $permissionsQuery->fetchAll(PDO::FETCH_ASSOC);
         formatDataDates($permissions, ['created_at', 'updated_at']);
-        
+
         return $permissions;
     }
 }

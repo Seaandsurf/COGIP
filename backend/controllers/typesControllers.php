@@ -1,5 +1,5 @@
 <?php 
-
+require_once('./backend/models/date.php');
 class typesController {
     private $pdo;
 
@@ -12,7 +12,7 @@ class typesController {
         $typesQuery = $this->pdo->query('SELECT * FROM types');
         $types= $typesQuery->fetchAll(PDO::FETCH_ASSOC);
         formatDataDates($roles, ['created_at', 'updated_at']);
-        
+
         return $types;
     }
 }
