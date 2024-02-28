@@ -1,18 +1,14 @@
 <?php 
 
 class InvoicesController {
-    function getAll() {
-        // Données depuis le model, depusi la DB.
-        $data = [
-            [
-                'ref' => '0123'
-            ],
-            [
-                'ref' => '4567'
-            ]
-        ];
+    private $pdo;
 
-        header('Content-Type: application/json; charset=utf-8');
-        echo json_encode($data);
+    public function __construct(PDO $pdo) {
+        $this->pdo = $pdo;
+    }
+
+    public function getAll_invoices() {
+        $invoices = $this->pdo->query('SELECT * FROM invoices');
+        return $invoices->fetchAll(PDO::FETCH_ASSOC);
     }
 }
