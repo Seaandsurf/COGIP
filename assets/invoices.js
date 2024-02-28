@@ -1,5 +1,5 @@
 
-async function getAll() {
+async function getAll_invoices() {
     const invoices = await fetch('./backend/api.php/invoices').then(res => res.json())
 
     const displayDiv = document.getElementById('display-invoices')
@@ -14,4 +14,4 @@ async function getAll() {
     })
 }
 
-getAll()
+
