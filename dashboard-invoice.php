@@ -59,7 +59,7 @@
             </div>
         </div>
         <div class="flex flex-col w-5/6 bg-slate-100 border-l-2 p-8 h-full pt-0">
-            <div class="flex flex-col h-2/5">
+            <div class="flex flex-col max-h-96">
                 <div class="flex flex-col h-full max-h-52 p-16">
                     <div class="text-3xl text-bold">Dashboard</div>
                     <div>dashboard/new-invoice</div>
@@ -164,13 +164,20 @@
                     </svg>
                 </div>
             </div>
-            <div class="h-3/5">
-                <div></div>
-                <div></div>
-            </div>
-            <div>
-                <div></div>
-                <div></div>
+
+            <div class="">
+                <div class="bg-white">
+                    <h1>New invoice</h1>
+                    <form class="flex flex-col" method="post" action="">
+                        <input type="text" placeholder="Reference">
+                        <label for=""></label>
+                        <input type="text" placeholder="Price">
+                        <label for=""></label>
+                        <input type="text" placeholder="Company name">
+                        <label for=""></label>
+                        <input type="submit">
+                    </form>
+                </div>
             </div>
         </div>
     </div>
