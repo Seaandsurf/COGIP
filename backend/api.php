@@ -1,5 +1,7 @@
 <?php
 
+// Exemple d'URL : http://localhost:8080/COGIP/backend/api.php/invoices?limit=5
+
 require_once('controllers/indexControllers.inc.php');
 
 $routes = [
