@@ -1,10 +1,10 @@
-import { getInvoices } from './get_data.js'
+import { getDataLimit } from './get_data.js'
 
 async function afficherInvoices() {
     const table = document.getElementById('tab-invoices').querySelector('tbody')
 
     // Va chercher les données depuis PHP.
-    const invoices = await getInvoices(5);
+    const invoices = await getDataLimit('./backend/api.php/invoices', 5);
 
     // Crée les lignes dans la table.
     invoices.forEach(invoice => {
@@ -32,8 +32,14 @@ async function afficherInvoices() {
     })
 }
 
+async function afficherCompagnies() {
+    // ...
+}
+
 async function main() {
     afficherInvoices()
+    afficherCompagnies()
+    // afficherXXXX()
 }
 
 // TODO Gestion des erreurs.
