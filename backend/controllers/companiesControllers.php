@@ -9,7 +9,7 @@ class CompaniesController {
     }
 
     public function getAll_companies() {
-        $companies = $this->pdo->query('SELECT * FROM Companies');
+        $companies = $this->pdo->query('SELECT * FROM companies');
         return $companies->fetchAll(PDO::FETCH_ASSOC);
     }
 }

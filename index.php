@@ -11,7 +11,7 @@ $pdo = connect_db();
 $companiesController = new CompaniesController($pdo);
 
 // Call the controller method to get all companies
-$Companies = $companiesController->getAll_companies();
+$companies = $companiesController->getAll_companies();
 ?>
 
 <!DOCTYPE html>
@@ -34,7 +34,7 @@ $Companies = $companiesController->getAll_companies();
             </tr>
         </thead>
         <tbody>
-            <?php foreach ($Companies as $company): ?>
+            <?php foreach ($companies as $company): ?>
                 <tr>
                     <td><?php echo $company['name']; ?></td>
                     <td><?php echo $company['country']; ?></td>
