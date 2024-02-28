@@ -1,4 +1,5 @@
 <?php
+
 function formatDate(string $date): string{
     $datetamp = strtotime($date);
     $formattedDate = date('d/m/Y', $datetamp);

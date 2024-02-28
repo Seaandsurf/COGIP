@@ -1,17 +1,9 @@
+export async function getInvoices(limit) {
+    // Appelle PHP pour récurérer les données.
 
-async function getAll_invoices() {
-    const invoices = await fetch('./backend/api.php/invoices').then(res => res.json())
-
-    const displayDiv = document.getElementById('display-invoices')
-    displayDiv.innerHTML = ''
-
-    invoices.forEach(i => {
-        const elm = document.createElement('div')
-        elm.innerText = i.ref
-        elm.className = 'ligne-facture red-backgound tailwind-bidule'
-
-        displayDiv.append(elm)
-    })
+    if(limit) {
+        return fetch(`./backend/api.php/invoices?limit=${limit}`).then(res => res.json())
+    } else {
+        return fetch('./backend/api.php/invoices').then(res => res.json())
+    }
 }
-
-
