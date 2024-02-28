@@ -1,5 +1,5 @@
 <?php 
-
+require_once('./backend/models/date.php');
 class CompaniesController {
     
     private $pdo;
@@ -9,7 +9,11 @@ class CompaniesController {
     }
 
     public function getAll_companies() {
-        $companies = $this->pdo->query('SELECT * FROM companies');
-        return $companies->fetchAll(PDO::FETCH_ASSOC);
+        $companieQuery = $this->pdo->query('SELECT * FROM companies');
+        $companies= $companieQuery->fetchAll(PDO::FETCH_ASSOC);
+        formatDataDates($companies, ['created_at', 'updated_at']);
+       
+        return $companies;
+
     }
 }

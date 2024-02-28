@@ -8,7 +8,10 @@ class ContactsController {
     }
 
     public function getAll_contacts() {
-        $companies = $this->pdo->query('SELECT * FROM contacts');
-        return $companies->fetchAll(PDO::FETCH_ASSOC);
+        $contactsQuery = $this->pdo->query('SELECT * FROM contacts');
+        $contacts= $contactsQuery->fetchAll(PDO::FETCH_ASSOC);
+        formatDataDates($contacts, ['created_at', 'updated_at']);
+
+        return $contacts;
     }
 }

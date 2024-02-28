@@ -8,7 +8,10 @@ class permissionsController {
     }
 
     public function getAll_permissions() {
-        $permissions = $this->pdo->query('SELECT * FROM permissions');
-        return $permissions->fetchAll(PDO::FETCH_ASSOC);
+        $permissionsQuery = $this->pdo->query('SELECT * FROM permissions');
+        $permissions= $permissionsQuery->fetchAll(PDO::FETCH_ASSOC);
+        formatDataDates($permissions, ['created_at', 'updated_at']);
+        
+        return $permissions;
     }
 }

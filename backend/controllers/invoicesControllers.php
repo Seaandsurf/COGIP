@@ -8,7 +8,10 @@ class InvoicesController {
     }
 
     public function getAll_invoices() {
-        $invoices = $this->pdo->query('SELECT * FROM invoices');
-        return $invoices->fetchAll(PDO::FETCH_ASSOC);
+        $invoicesQuery = $this->pdo->query('SELECT * FROM invoices');
+        $invoices= $invoicesQuery->fetchAll(PDO::FETCH_ASSOC);
+        formatDataDates($invoices, ['created_at', 'updated_at']);
+
+        return $invoices;
     }
 }
