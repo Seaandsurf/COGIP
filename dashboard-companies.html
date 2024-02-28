@@ -37,7 +37,7 @@
                                 <rect x="0.5" y="0.5" width="21" height="21" rx="2.5" stroke="#9698D6" />
                             </svg>
                             Invoices</a></li>
-                    <li><a href="dashboard-companies.php"><svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <li><a href="dashboard-companies.php" class="font-bold"><svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M5.82355 10.353H7.76472M5.82355 14.2354H7.76472M12.2941 8.41187H15.5294M12.2941 11.6472H15.5294M12.2941 14.2354H15.5294" stroke="#9698D6" />
                                 <path d="M1.29407 16.8236H20.7058M3.8823 16.8236V7.11768H7.1176H10.3529V16.8236H3.8823Z" stroke="#9698D6" />
                                 <path d="M10.353 7.62853V5.17651H18.1177V16.8236" stroke="#9698D6" />
@@ -62,7 +62,7 @@
             <div class="flex flex-col max-h-96">
                 <div class="flex flex-col h-full max-h-52 p-16">
                     <div class="text-3xl font-black">Dashboard</div>
-                    <div>dashboard/new-invoice</div>
+                    <div>dashboard/new-company</div>
                 </div>
                 <div class="flex flex-col h-full max-h-52 bg-indigo-300 rounded-md w-full justify-center">
                     <div class="w-1/2 flex flex-col text-justify items-center p-16">
@@ -167,16 +167,20 @@
 
             <div class="">
                 <div class="bg-white p-10 mt-16 rounded-md">
-                    <h1 class="font-bold">New invoice</h1>
+                    <h1 class="font-bold">New company</h1>
                     <div class="h-px w-full border-t-2 mt-8 mb-2" style="color: rgba(115, 115, 115, 1)"></div>
                     <form class="flex flex-col" method="post" action="">
-                        <input class="bg-slate-100 mt-11" type="text" placeholder="Reference">
-                        <label for=""></label>
-                        <input class="bg-slate-100 mt-11" type="text" placeholder="Price">
-                        <label for=""></label>
-                        <input class="bg-slate-100 mt-11" type="text" placeholder="Company name">
-                        <label for=""></label>
-                        <input class="bg-indigo-300 mt-11 w-full text-left" type="submit" value="Save">
+                        <input name="name" class="bg-slate-100 mt-11 p-2" type="text" placeholder="Name">
+                        <label for="name"></label>
+                        <input name="tva" class="bg-slate-100 mt-11 p-2" type="text" placeholder="TVA">
+                        <label for="tva"></label>
+                        <input name="country" class="bg-slate-100 mt-11 p-2" type="text" placeholder="Country">
+                        <label for="country"></label>
+                        <input name="type" class="bg-slate-100 mt-11 p-2" type="text" placeholder="Type">
+                        <label for="type"></label>
+                        <input name="date" class="bg-slate-100 mt-11 p-2" type="date" placeholder="Date">
+                        <label for="date"></label>
+                        <input class="bg-indigo-300 mt-11 w-full text-left p-2" type="submit" value="Save">
                     </form>
                 </div>
             </div>
