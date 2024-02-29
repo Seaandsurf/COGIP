@@ -1,17 +1,13 @@
 <?php 
 require_once('models/date.php');
 class usersController {
-    private $pdo;
-
-    public function __construct(PDO $pdo) {
-        $this->pdo = $pdo;
-    }
-
     public function getAll_users() {
-        $usersQuery = $this->pdo->query('SELECT * FROM users');
-        $users= $usersQuery->fetchAll(PDO::FETCH_ASSOC);
-        formatDataDates($users, ['created_at', 'updated_at']);
+        $limit = intval($_GET['limit'] ?? '-1');
 
-        return $users;
+        $users = Users::getAll($limit);
+        formatDataDates($users, ['created_at', 'updated_at']);
+        
+        // Défini dans "indexController.inc.php".
+        sendJson($users);
     }
 }

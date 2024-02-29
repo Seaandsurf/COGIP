@@ -12,4 +12,23 @@ class Permissions {
         $this->updated_at = $updated_at;
     
     }
+    public static function getAll($limit) {
+        $pdo = connect_db();
+
+        $baseSql = 'SELECT * FROM permissions';
+
+        if($limit > -1) {
+            $permissionsQuery = $pdo->prepare($baseSql . 'LIMIT :limit ');
+            $permissionsQuery->bindParam(':limit', $limit, PDO::PARAM_INT);
+            $permissionsQuery->execute();
+        } else {
+            $permissionsQuery = $pdo->query($baseSql);
+        }
+
+        $permissions = $permissionsQuery->fetchAll(PDO::FETCH_ASSOC);
+
+       
+
+        return $permissions;
+    }
 }
