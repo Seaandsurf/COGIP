@@ -1,5 +1,5 @@
 <?php 
-
+require_once('models/date.php');
 class usersController {
     private $pdo;
 
@@ -8,7 +8,9 @@ class usersController {
     }
 
     public function getAll_users() {
-        $users = $this->pdo->query('SELECT * FROM users');
-        return $users->fetchAll(PDO::FETCH_ASSOC);
+        $usersQuery = $this->pdo->query('SELECT * FROM users');
+        $users= $usersQuery->fetchAll(PDO::FETCH_ASSOC);
+        formatDataDates($users, ['created_at', 'updated_at']);
+        return $users;
     }
 }

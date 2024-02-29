@@ -1,5 +1,5 @@
 <?php 
-
+require_once('models/date.php');
 class permissionsController {
     private $pdo;
 
@@ -8,7 +8,27 @@ class permissionsController {
     }
 
     public function getAll_permissions() {
-        $permissions = $this->pdo->query('SELECT * FROM permissions');
-        return $permissions->fetchAll(PDO::FETCH_ASSOC);
+        $permissionsQuery = $this->pdo->query('SELECT * FROM permissions');
+        $permissions= $permissionsQuery->fetchAll(PDO::FETCH_ASSOC);
+        formatDataDates($permissions, ['created_at', 'updated_at']);
+
+        return $permissions;
+    }
+}
+
+<?php 
+
+require_once('models/connexion.php');
+require_once('models/date.php');
+require_once('models/invoices.php');
+
+class InvoicesController {
+    public function getAll_invoices() {
+        $limit = intval($_GET['limit'] ?? '-1');
+
+        $invoices = Invoices::getAllWithCompanyName($limit);
+        formatDataDates($invoices, ['created_at', 'updated_at', 'date_due']);   
+        // Défini dans "indexController.inc.php".
+        sendJson($invoices);
     }
 }

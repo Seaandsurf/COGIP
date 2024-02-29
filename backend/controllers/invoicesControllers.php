@@ -1,14 +1,15 @@
 <?php 
 
+require_once('models/connexion.php');
+require_once('models/date.php');
+require_once('models/invoices.php');
+
 class InvoicesController {
-    private $pdo;
-
-    public function __construct(PDO $pdo) {
-        $this->pdo = $pdo;
-    }
-
     public function getAll_invoices() {
-        $invoices = $this->pdo->query('SELECT * FROM invoices');
-        return $invoices->fetchAll(PDO::FETCH_ASSOC);
+        $limit = intval($_GET['limit'] ?? '-1');
+        $invoices = Invoices::getAllWithCompanyName($limit);
+        formatDataDates($invoices, ['created_at', 'updated_at', 'date_due']);    
+        // Défini dans "indexController.inc.php".
+        sendJson($invoices);
     }
 }
