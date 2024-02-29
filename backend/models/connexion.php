@@ -9,10 +9,21 @@
 //     return $pdo;
 // }
 
+// function connect_db() {
+//     $dsn = 'mysql:dbname=cogip;host=db';
+//     $user = 'root';
+//     $password = 'KWmuLNjpzseXcTUNcnpz';
+//     $pdo = new PDO($dsn, $user, $password);
+
+//     return $pdo;
+// }
+
+
+//MATHIAS
 function connect_db() {
     $dsn = 'mysql:dbname=cogip;host=db';
     $user = 'root';
-    $password = 'KWmuLNjpzseXcTUNcnpz';
+    $password = '';
     $pdo = new PDO($dsn, $user, $password);
 
     return $pdo;
