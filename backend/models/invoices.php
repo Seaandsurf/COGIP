@@ -31,11 +31,7 @@ class Invoices {
 
         $invoices = $invoicesQuery->fetchAll(PDO::FETCH_ASSOC);
 
-        // $invoices = [];
-        // foreach ($rawInvoices as $rawInvoice) {
-        //     // We are converting an article from a "dumb" array to a much more flexible class
-        //     $invoices[] = new Invoices($rawInvoice['ref'], $rawInvoice['created_at'], $rawInvoice['updated_at'], $rawInvoice['date_due']);
-        // }
+       
 
         return $invoices;
     }
