@@ -16,4 +16,25 @@ class Contacts {
         $this->updated_at = $updated_at;
     
     }
+    public static function getAllContactsWithCompanyName($limit) {
+        $pdo = connect_db();
+
+        $baseSql = 'SELECT contacts.*, companies.name as company_name ';
+        $baseSql .= 'FROM contacts INNER JOIN companies ON invoices.id_company = companies.id ';
+        $baseSql .= 'ORDER BY created_at DESC ';
+
+        if($limit > -1) {
+            $contactsQuery = $pdo->prepare($baseSql . 'LIMIT :limit ');
+            $contactsQuery->bindParam(':limit', $limit, PDO::PARAM_INT);
+            $contactsQuery->execute();
+        } else {
+            $contactsQuery = $pdo->query($baseSql);
+        }
+
+        $contacts = $contactsQuery->fetchAll(PDO::FETCH_ASSOC);
+
+       
+
+        return $contacts;
+    }
 }
