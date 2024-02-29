@@ -1,6 +1,7 @@
 <?php 
-
+require_once('models/connexion.php');
 require_once('models/date.php');
+require_once('models/companies.php');
 
 class CompaniesController {
     public function getAll_companies() {
