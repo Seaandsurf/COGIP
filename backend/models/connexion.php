@@ -21,7 +21,7 @@
 
 //MATHIAS
 function connect_db() {
-    $dsn = 'mysql:dbname=cogip;host=db';
+    $dsn = 'mysql:dbname=COGIP;host=db';
     $user = 'root';
     $password = '';
     $pdo = new PDO($dsn, $user, $password);
