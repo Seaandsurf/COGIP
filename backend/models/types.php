@@ -12,4 +12,23 @@ class Types {
         $this->updated_at = $updated_at;
     
     }
+    public static function getAll($limit) {
+        $pdo = connect_db();
+
+        $baseSql = 'SELECT * FROM types';
+
+        if($limit > -1) {
+            $typesQuery = $pdo->prepare($baseSql . 'LIMIT :limit ');
+            $typesQuery->bindParam(':limit', $limit, PDO::PARAM_INT);
+            $typesQuery->execute();
+        } else {
+            $typesQuery = $pdo->query($baseSql);
+        }
+
+        $types = $typesQuery->fetchAll(PDO::FETCH_ASSOC);
+
+       
+
+        return $types;
+    }
 }
