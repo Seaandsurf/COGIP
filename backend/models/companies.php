@@ -16,4 +16,25 @@ class Companies {
         $this->updated_at = $updated_at;
     
     }
+    public static function getAllCompaniesWithTypeName($limit) {
+        $pdo = connect_db();
+
+        $baseSql = 'SELECT companies.*, types.name as types_name ';
+        $baseSql .= 'FROM companies INNER JOIN companies ON type.id_name = name.id ';
+        $baseSql .= 'ORDER BY created_at DESC ';
+
+        if($limit > -1) {
+            $companiesQuery = $pdo->prepare($baseSql . 'LIMIT :limit ');
+            $companiesQuery->bindParam(':limit', $limit, PDO::PARAM_INT);
+            $companiesQuery->execute();
+        } else {
+            $companiesQuery = $pdo->query($baseSql);
+        }
+
+        $companies = $companiesQuery->fetchAll(PDO::FETCH_ASSOC);
+
+       
+
+        return $companies;
+    }
 }
