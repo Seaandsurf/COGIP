@@ -8,10 +8,10 @@ $routes = [
     '/invoices' => fn() => (new InvoicesController())->getAll_invoices(),
     '/contacts' => fn() => (new ContactsController())->getAll_contacts(),
     '/companies' => fn() => (new CompaniesController())->getAll_companies(),
-    // '/permissions' => fn() => (new PermissionsController())->getAll_permissions(),
-    // '/roles' => fn() => (new RolesController())->getAll_roles(),
-    // '/types' => fn() => (new TypesController())->getAll_types(),
-    // '/users' => fn() => (new UsersController())->getAll_users(),
+    '/permissions' => fn() => (new PermissionsController())->getAll_permissions(),
+    '/roles' => fn() => (new RolesController())->getAll_roles(),
+    '/types' => fn() => (new TypesController())->getAll_types(),
+    '/users' => fn() => (new UsersController())->getAll_users(),
 ];
 
 $path = $_SERVER['PATH_INFO'];
