@@ -1,17 +1,13 @@
 <?php
 
-require_once('backend/models/companies.php');
-require_once('backend/controllers/companiesControllers.php');
+require_once('backend/api.php');
 require_once('backend/models/connexion.php');
 
 
 $pdo = connect_db();
-
-
 $companiesController = new CompaniesController($pdo);
-
-// Call the controller method to get all companies
 $companies = $companiesController->getAll_companies();
+
 ?>
 
 <!DOCTYPE html>
