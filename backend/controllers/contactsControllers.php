@@ -26,7 +26,7 @@ class ContactsController {
 
             sendJson($res);
         } else {
-            print('404 Not Found');
+            print('405 Method Not Allowed');
             exit();
         }
     }

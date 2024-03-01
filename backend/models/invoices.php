@@ -2,6 +2,7 @@
 declare(strict_types=1);
 class Invoices {
     private string $ref;
+    private int $price;
     private string $created_at;
     private string $updated_at;
     private string $date_due;
@@ -34,5 +35,30 @@ class Invoices {
        
 
         return $invoices;
+    }
+
+    public static function insertInvoices($ref, $id_company, $price, $date_due)
+    {
+        try {
+            $pdo = connect_db();
+
+            $sql = 'INSERT INTO invoices (ref, id_company,price,date_due) VALUES (:ref, :id_company,:price,:date_due)';
+
+            $stmt = $pdo->prepare($sql);
+
+            $stmt->bindParam(':ref', $ref, PDO::PARAM_STR);
+            $stmt->bindParam(':id_company', $id_company, PDO::PARAM_INT);
+            $stmt->bindParam(':price', $price, PDO::PARAM_INT);
+            $stmt->bindParam(':date_due', $date_due, PDO::PARAM_STR);
+
+            return [
+                "result" => $stmt->execute()
+            ];
+        } catch (PDOException $e) {
+            return [
+                "result" => false,
+                "error" => $e
+            ];
+        }
     }
 }
