@@ -33,8 +33,20 @@ class Companies {
 
         $companies = $companiesQuery->fetchAll(PDO::FETCH_ASSOC);
 
-       
-
         return $companies;
+    }
+
+    public static function add_companies($name,$country,$tva,$type_id){
+        $pdo= connect_db();
+
+        $sql = 'INSERT INTO companies (name,country,tva,type_id) VALUES (:name, :country, :tva, :type_id)';
+        $stmt = $pdo->prepare($sql);
+        $stmt->bindParam(':name', $name, PDO::PARAM_STR);
+        $stmt->bindParam(':country', $country, PDO::PARAM_STR);
+        $stmt->bindParam(':tva', $tva, PDO::PARAM_STR);
+        $stmt->bindParam(':type_id', $type_id, PDO::PARAM_STR);
+    
+        
+        return $stmt->execute();
     }
 }

@@ -1,5 +1,5 @@
 <?php
-
+// thomas, mathias, robin : changer mots de passe
 // function connect_db() {
 //     $host = "localhost";
 //     $database = "cogip";
@@ -9,30 +9,18 @@
 //     return $pdo;
 // }
 
-// function connect_db() {
-//     $dsn = 'mysql:dbname=cogip;host=db';
-//     $user = 'root';
-//     $password = 'KWmuLNjpzseXcTUNcnpz';
-//     $pdo = new PDO($dsn, $user, $password);
-
-//     return $pdo;
-// }
-
-<<<<<<< HEAD
-
-//MATHIAS
+// alice
 function connect_db() {
     $dsn = 'mysql:dbname=cogip;host=db';
     $user = 'root';
-    $password = '';
-=======
-function connect_db()
-{
-    $dsn = 'mysql:dbname=cogip;host=db';
-    $user = 'root';
-    $password = 'root';
->>>>>>> thomas
+    $password = 'KWmuLNjpzseXcTUNcnpz';
     $pdo = new PDO($dsn, $user, $password);
 
     return $pdo;
 }
+
+
+
+
+
+

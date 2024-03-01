@@ -6,11 +6,14 @@ require_once('controllers/indexControllers.inc.php');
 
 $routes = [
     '/invoices' => fn() => (new InvoicesController())->getAll_invoices(),
+    '/invoice/new' => fn() => (new InvoicesController())->addNewInvoice(),
     '/contacts' => fn() => (new ContactsController())->getAll_contacts(),
+    '/contact/new' => fn() => (new ContactsController())->addNewContact(),
     '/companies' => fn() => (new CompaniesController())->getAll_companies(),
+    '/companies_new' => fn() => (new CompaniesController())->add_companie(),
     '/permissions' => fn() => (new PermissionsController())->getAll_permissions(),
     '/roles' => fn() => (new RolesController())->getAll_roles(),
-    '/types' => fn() => (new TypesController())->getAll_types(),
+   /* '/types' => fn() => (new TypesController())->getAll_types(),*/
     '/users' => fn() => (new UsersController())->getAll_users(),
 ];
 
