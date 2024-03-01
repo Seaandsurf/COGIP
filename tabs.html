@@ -1,183 +1,105 @@
-<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdn.tailwindcss.com">
+  </script>
 
-<!-- 1 JS par page -->
-<script type="module" src="./assets/tabs.js"></script>
+  <!-- 1 JS par page -->
+  <script type="module" src="./assets/tabs.js"></script>
 
-<!-- // LAST INVOICES---------------------- -->
-<table id="tab-invoices" class="w-[1193px] relative overflow-hidden z-10 bg-white p-8">
-    <h1 class="text-[65px] mb-12 text-black text-left font-bold">Last invoices</h1>
+  <!-- // LAST INVOICES---------------------- -->
+  <table id="tab-invoices" class="w-[1193px] relative overflow-hidden z-10 bg-white p-8">
+    <h1 class="text-[65px] mb-12 text-black text-left font-bold">
+      Last invoices
+    </h1>
     <tr class="bg-indigo-500 h-[55px] py-2">
-        <th class="text-white w-1/5 text-[20px] text-left pl-8 py-2">Invoice number</th>
-        <th class="text-white w-1/5 text-[20px] text-left py-2">Dates due</th>
-        <th class="text-white w-1/5 text-[20px] text-left py-2">Company</th>
-        <th class="text-white w-1/5 text-[20px] text-left py-2">Created at</th>
+      <th class="text-white w-1/5 text-[20px] text-left pl-8 py-2">Invoice number</th>
+      <th class="text-white w-1/5 text-[20px] text-left py-2">Dates due</th>
+      <th class="text-white w-1/5 text-[20px] text-left py-2">Company</th>
+      <th class="text-white w-1/5 text-[20px] text-left py-2">Created at</th>
     </tr>
 
     <!-- Sera généré par le JS -->
-</table>
+  </table>
 
-
-<!-- // LAST CONTACTS---------------------- -->
-<table class="w-[1193px] relative overflow-hidden z-10 bg-white p-8">
+  <!-- // LAST CONTACTS---------------------- -->
+  <table id="lastContacts" class="w-[1193px] relative overflow-hidden z-10 bg-white p-8">
     <h1 class="text-[65px] mb-24 text-black text-left font-bold mb-6">Last contacts</h1>
-    <tr class="bg-indigo-500 h-[55px] py-2 flex justify-self-start">
-        <th class="text-white w-1/6 text-[20px] text-left pl-8 py-2">Name</th>
-        <th class="text-white w-1/6 text-[20px] text-left py-2">Phone</th>
-        <th class="text-white w-1/6 text-[20px] text-left py-2">Mail</th>
-        <th class="text-white w-1/6 text-[20px] text-left py-2">Company</th>
-        <th class="text-white w-1/6 text-[20px] text-left py-2">Created at</th>
+    <tr class="bg-indigo-500 h-[55px] py-2">
+      <th class="text-white w-1/6 text-[20px] text-left pl-8 py-2">Name</th>
+      <th class="text-white w-1/6 text-[20px] text-left py-2">company ID</th>
+      <th class="text-white w-1/6 text-[20px] text-left py-2">Email</th>
+      <th class="text-white w-1/6 text-[20px] text-left py-2">Phone</th>
+      <th class="text-white w-1/6 text-[20px] text-left py-2">Created at</th>
+      <th class="text-white w-1/5 text-[20px] text-left py-2">Updated at</th>
     </tr>
-    <?php foreach ($dbData as $data) : ?>
-    <tr class="py-8  border-collapse">
-        <td class="pl-2 pb-2">
-            <?= $data['Name'] ?>
-        </td>
-        <td class="pb-2">
-            <?= $data['Phone'] ?>
-        </td>
-        <td class="pb-2">
-            <?= $data['Mail'] ?>
-        </td>
-        <td class="pb-2">
-            <?= $data['Company'] ?>
-        </td>
-        <td class="pb-2">
-            <?= $data['Created_at'] ?>
-        </td>
-    </tr>
-    <?php endforeach; ?>
-</table>
 
+    <!-- Sera généré par le JS -->
+  </table>
 
-<!-- // LAST COMPANIES---------------------- -->
-<table class="w-[1193px] relative overflow-hidden z-10 bg-white p-8">
+  <!-- // LAST COMPANIES---------------------- -->
+  <table id="lastCompanies" class="w-[1193px] relative overflow-hidden z-10 bg-white p-8">
     <h1 class="text-[65px] mb-24 text-black text-left font-bold mb-6">Last companies</h1>
-    <tr class="bg-indigo-500 h-[55px] py-2 flex justify-self-start">
-        <th class="text-white w-1/6 text-[20px] text-left pl-8 py-2">Name</th>
-        <th class="text-white w-1/6 text-[20px] text-left py-2">TVA</th>
-        <th class="text-white w-1/6 text-[20px] text-left py-2">Country</th>
-        <th class="text-white w-1/6 text-[20px] text-left py-2">Type</th>
-        <th class="text-white w-1/6 text-[20px] text-left py-2">Created at</th>
+    <tr class="bg-indigo-500 h-[55px] py-2">
+      <th class="text-white w-1/6 text-[20px] text-left pl-8 py-2">Name</th>
+      <th class="text-white w-1/6 text-[20px] text-left py-2">Type</th>
+      <th class="text-white w-1/6 text-[20px] text-left py-2">Country</th>
+      <th class="text-white w-1/6 text-[20px] text-left py-2">TVA</th>
+      <th class="text-white w-1/6 text-[20px] text-left py-2">Created at</th>
+      <th class="text-white w-1/5 text-[20px] text-left py-2">Updated at</th>
     </tr>
-    <?php foreach ($dbData as $data) : ?>
-    <tr class="py-8  border-collapse">
-        <td class="pl-2 pb-2">
-            <?= $data['Name'] ?>
-        </td>
-        <td class="pb-2">
-            <?= $data['TVA'] ?>
-        </td>
-        <td class="pb-2">
-            <?= $data['Country'] ?>
-        </td>
-        <td class="pb-2">
-            <?= $data['Type'] ?>
-        </td>
-        <td class="pb-2">
-            <?= $data['Created_at'] ?>
-        </td>
-    </tr>
-    <?php endforeach; ?>
-</table>
 
+    <!-- Sera généré par le JS -->
+  </table>
 
-<!-- // ALL INVOICES---------------------- -->
-<table class="w-[1193px] relative overflow-hidden z-10 bg-white p-8">
+  <!-- // ALL INVOICES---------------------- -->
+  <table id="allInvoices" class="w-[1193px] relative overflow-hidden z-10 bg-white p-8">
 
     <h1 class="text-[65px] mb-24 text-black text-left font-bold mb-6">All invoices</h1>
     <input placeholder="Search company"
-        class="bg-white border-2 border-black rounded-lg text-black mb-8 px-6 py-3 text-base hover:border-indigo-500 cursor-pointer transition"
-        type="text" />
-    <tr class="bg-indigo-500 h-[55px] py-2 flex justify-self-start">
-        <th class="text-white w-1/5 text-[20px] text-left pl-8 py-2">Invoice number</th>
-        <th class="text-white w-1/5 text-[20px] text-left py-2">Dates due</th>
-        <th class="text-white w-1/5 text-[20px] text-left py-2">Company</th>
-        <th class="text-white w-1/5 text-[20px] text-left py-2">Created at</th>
+      class="bg-white border-2 border-black rounded-lg text-black mb-8 px-6 py-3 text-base hover:border-indigo-500 cursor-pointer transition"
+      type="text" />
+    <tr class="bg-indigo-500 h-[55px] py-2">
+      <th class="text-white w-1/5 text-[20px] text-left pl-8 py-2">Invoice number</th>
+      <th class="text-white w-1/5 text-[20px] text-left py-2">Dates due</th>
+      <th class="text-white w-1/5 text-[20px] text-left py-2">Price</th>
+      <th class="text-white w-1/5 text-[20px] text-left py-2">Company</th>
+      <th class="text-white w-1/5 text-[20px] text-left py-2">Created at</th>
+      <th class="text-white w-1/5 text-[20px] text-left py-2">Updated at</th>
     </tr>
-    <?php foreach ($dbData as $data) : ?>
-    <tr class="py-8 bg border-collapse">
-        <td class="pl-2 pb-2">
-            <?= $data['Invoice_number'] ?>
-        </td>
-        <td class="pb-2">
-            <?= $data['Dates_due'] ?>
-        </td>
-        <td class="pb-2">
-            <?= $data['Company'] ?>
-        </td>
-        <td class="pb-2">
-            <?= $data['Created_at'] ?>
-        </td>
-    </tr>
-    <?php endforeach; ?>
-</table>
 
+    <!-- Sera généré par le JS -->
+  </table>
 
-<!-- // ALL CONTACTS---------------------- -->
-<table class="w-[1193px] relative overflow-hidden z-10 bg-white p-8">
+  <!-- // ALL CONTACTS---------------------- -->
+  <table id="allContacts" class="w-[1193px] relative overflow-hidden z-10 bg-white p-8">
     <h1 class="text-[65px] mb-24 text-black text-left font-bold mb-6">All contacts</h1>
     <input placeholder="Search contact"
-        class="bg-white border-2 border-black rounded-lg text-black mb-8 px-6 py-3 text-base hover:border-indigo-500 cursor-pointer transition"
-        type="text" />
-    <tr class="bg-indigo-500 h-[55px] py-2 flex justify-self-start">
-        <th class="text-white w-1/6 text-[20px] text-left pl-8 py-2">Name</th>
-        <th class="text-white w-1/6 text-[20px] text-left py-2">Phone</th>
-        <th class="text-white w-1/6 text-[20px] text-left py-2">Mail</th>
-        <th class="text-white w-1/6 text-[20px] text-left py-2">Company</th>
-        <th class="text-white w-1/6 text-[20px] text-left py-2">Created at</th>
+      class="bg-white border-2 border-black rounded-lg text-black mb-8 px-6 py-3 text-base hover:border-indigo-500 cursor-pointer transition"
+      type="text" />
+    <tr class="bg-indigo-500 h-[55px] py-2">
+      <th class="text-white w-1/6 text-[20px] text-left pl-8 py-2">Name</th>
+      <th class="text-white w-1/6 text-[20px] text-left py-2">company ID</th>
+      <th class="text-white w-1/6 text-[20px] text-left py-2">Email</th>
+      <th class="text-white w-1/6 text-[20px] text-left py-2">Phone</th>
+      <th class="text-white w-1/6 text-[20px] text-left py-2">Created at</th>
+      <th class="text-white w-1/5 text-[20px] text-left py-2">Updated at</th>
     </tr>
-    <?php foreach ($dbData as $data) : ?>
-    <tr class="py-8  border-collapse">
-        <td class="pl-2 pb-2">
-            <?= $data['Name'] ?>
-        </td>
-        <td class="pb-2">
-            <?= $data['Phone'] ?>
-        </td>
-        <td class="pb-2">
-            <?= $data['Mail'] ?>
-        </td>
-        <td class="pb-2">
-            <?= $data['Company'] ?>
-        </td>
-        <td class="pb-2">
-            <?= $data['Created_at'] ?>
-        </td>
-    </tr>
-    <?php endforeach; ?>
-</table>
 
+    <!-- Sera généré par le JS -->
+  </table>
 
-<!-- // ALL COMPANIES---------------------- -->
-<table class="w-[1193px] relative overflow-hidden z-10 bg-white p-8">
+  <!-- // ALL COMPANIES---------------------- -->
+  <table id="allCompanies" class="w-[1193px] relative overflow-hidden z-10 bg-white p-8">
     <h1 class="text-[65px] mb-24 text-black text-left font-bold mb-6">All companies</h1>
     <input placeholder="Search company name"
-        class="bg-white border-2 border-black rounded-lg text-black mb-8 px-6 py-3 text-base hover:border-indigo-500 cursor-pointer transition"
-        type="text" />
+      class="bg-white border-2 border-black rounded-lg text-black mb-8 px-6 py-3 text-base hover:border-indigo-500 cursor-pointer transition"
+      type="text" />
     <tr class="bg-indigo-500 h-[55px] py-2">
-        <th class="text-white w-1/6 text-[20px] text-left pl-8 py-2">Name</th>
-        <th class="text-white w-1/6 text-[20px] text-left py-2">TVA</th>
-        <th class="text-white w-1/6 text-[20px] text-left py-2">Country</th>
-        <th class="text-white w-1/6 text-[20px] text-left py-2">Type</th>
-        <th class="text-white w-1/6 text-[20px] text-left py-2">Created at</th>
+      <th class="text-white w-1/6 text-[20px] text-left pl-8 py-2">Name</th>
+      <th class="text-white w-1/6 text-[20px] text-left py-2">Type</th>
+      <th class="text-white w-1/6 text-[20px] text-left py-2">Country</th>
+      <th class="text-white w-1/6 text-[20px] text-left py-2">TVA</th>
+      <th class="text-white w-1/6 text-[20px] text-left py-2">Created at</th>
+      <th class="text-white w-1/5 text-[20px] text-left py-2">Updated at</th>
     </tr>
-    <?php foreach ($dbData as $data) : ?>
-    <tr class="py-8  border-collapse">
-        <td class="pl-2 pb-2">
-            <?= $data['Name'] ?>
-        </td>
-        <td class="pb-2">
-            <?= $data['TVA'] ?>
-        </td>
-        <td class="pb-2">
-            <?= $data['Country'] ?>
-        </td>
-        <td class="pb-2">
-            <?= $data['Type'] ?>
-        </td>
-        <td class="pb-2">
-            <?= $data['Created_at'] ?>
-        </td>
-    </tr>
-    <?php endforeach; ?>
-</table>
+
+    <!-- Sera généré par le JS -->
+  </table>

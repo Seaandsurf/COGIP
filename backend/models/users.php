@@ -18,4 +18,23 @@ class Users {
         $this->updated_at = $updated_at;
     
     }
+    public static function getAll($limit) {
+        $pdo = connect_db();
+
+        $baseSql = 'SELECT * FROM users';
+
+        if($limit > -1) {
+            $usersQuery = $pdo->prepare($baseSql . 'LIMIT :limit ');
+            $usersQuery->bindParam(':limit', $limit, PDO::PARAM_INT);
+            $usersQuery->execute();
+        } else {
+            $usersQuery = $pdo->query($baseSql);
+        }
+
+        $users = $usersQuery->fetchAll(PDO::FETCH_ASSOC);
+
+       
+
+        return $users;
+    }
 }

@@ -1,17 +1,17 @@
 <?php 
+require_once('models/connexion.php');
 require_once('models/date.php');
+require_once('models/contacts.php');
 class ContactsController {
-    private $pdo;
+        public function getAll_contacts() {
+            $limit = intval($_GET['limit'] ?? '-1');
+    
+            $contacts = Contacts::getAllContactsWithCompanyName($limit);
+            formatDataDates($contacts, ['created_at', 'updated_at']);
+            
+            // Défini dans "indexController.inc.php".
+            sendJson($contacts);
+        }
 
-    public function __construct(PDO $pdo) {
-        $this->pdo = $pdo;
-    }
 
-    public function getAll_contacts() {
-        $contactsQuery = $this->pdo->query('SELECT * FROM contacts');
-        $contacts= $contactsQuery->fetchAll(PDO::FETCH_ASSOC);
-        formatDataDates($contacts, ['created_at', 'updated_at']);
-
-        return $contacts;
-    }
 }
