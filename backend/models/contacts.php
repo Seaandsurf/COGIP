@@ -20,7 +20,7 @@ class Contacts {
         $pdo = connect_db();
 
         $baseSql = 'SELECT contacts.*, companies.name as company_name ';
-        $baseSql .= 'FROM contacts INNER JOIN companies ON invoices.id_company = companies.id ';
+        $baseSql .= 'FROM contacts INNER JOIN companies ON contacts.company_id = companies.id ';
         $baseSql .= 'ORDER BY created_at DESC ';
 
         if($limit > -1) {
