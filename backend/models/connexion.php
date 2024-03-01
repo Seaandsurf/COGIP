@@ -18,11 +18,20 @@
 //     return $pdo;
 // }
 
+<<<<<<< HEAD
+
+//MATHIAS
+function connect_db() {
+    $dsn = 'mysql:dbname=cogip;host=db';
+    $user = 'root';
+    $password = '';
+=======
 function connect_db()
 {
     $dsn = 'mysql:dbname=cogip;host=db';
     $user = 'root';
     $password = 'root';
+>>>>>>> thomas
     $pdo = new PDO($dsn, $user, $password);
 
     return $pdo;

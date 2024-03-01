@@ -20,7 +20,7 @@ class Companies {
         $pdo = connect_db();
 
         $baseSql = 'SELECT companies.*, types.name as types_name ';
-        $baseSql .= 'FROM companies INNER JOIN companies ON type.id_name = name.id ';
+        $baseSql .= 'FROM companies INNER JOIN types ON companies.type_id = types.id ';
         $baseSql .= 'ORDER BY created_at DESC ';
 
         if($limit > -1) {

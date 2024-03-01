@@ -170,13 +170,13 @@
                     <h1 class="font-bold">New invoice</h1>
                     <div class="h-px w-full border-t-2 mt-8 mb-2" style="color: rgba(115, 115, 115, 1)"></div>
                     <form class="flex flex-col" method="post" action="">
-                        <input name="reference" class="bg-slate-100 mt-11 p-2" type="text" placeholder="Reference">
+                        <input id="invoices_ref" name="reference" class="bg-slate-100 mt-11 p-2" type="text" placeholder="Reference">
                         <label for="reference"></label>
-                        <input name="date" class="bg-slate-100 mt-11 p-2" type="date" placeholder="Date">
+                        <input id="invoices_date" name="date" class="bg-slate-100 mt-11 p-2" type="date" placeholder="Date">
                         <label for="date"></label>
-                        <input name="price" class="bg-slate-100 mt-11 p-2" type="number" placeholder="Price">
+                        <input id="invoices_price" name="price" class="bg-slate-100 mt-11 p-2" type="number" placeholder="Price">
                         <label for="price"></label>
-                        <input name="company-name" class="bg-slate-100 mt-11 p-2" type="text" placeholder="Company name">
+                        <input id="invoices_companyName" name="company-name" class="bg-slate-100 mt-11 p-2" type="text" placeholder="Company name">
                         <label for="company-name"></label>
                         <input class="bg-indigo-300 mt-11 w-full text-left p-2" type="submit" value="Save">
                     </form>
