@@ -10,6 +10,8 @@
 </head>
 
 <body>
+    <!-- J'ai rajouté un form -->
+    <form action="/COGIP/backend/api.php/companies_new" method="post" id="contactForm" enctype="multipart/form-data">
     <div class="flex w-full h-min">
         <div class="flex flex-col w-1/6">
             <div class="flex flex-col items-center m-0 h-min p-8">
@@ -178,6 +180,14 @@
 
                         <input id="companies_country" name="country" class="bg-slate-100 mt-11 p-2" type="text" placeholder="Country">
                         <label for="country"></label>
+                        <select id="type_id" name="type_id" class="bg-slate-100 mt-11 p-2">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select>
+                        <label for="type_id">Type ID</label>
 
                         <div class="flex w-full">
                         <input id="contact" name="type" class="bg-slate-100 mt-11 p-2 w-full" type="radio" checked>
@@ -195,6 +205,7 @@
             </div>
         </div>
     </div>
+</form>
 </body>
 
 </html>

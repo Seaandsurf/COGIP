@@ -7,7 +7,6 @@ class typesController {
         $this->pdo = $pdo;
     }
 
-
     public function getAll_types() {
         $limit = intval($_GET['limit'] ?? '-1');
 

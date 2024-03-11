@@ -27,8 +27,6 @@ class Roles {
 
         $roles = $rolesQuery->fetchAll(PDO::FETCH_ASSOC);
 
-       
-
         return $roles;
     }
 }
