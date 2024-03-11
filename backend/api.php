@@ -13,7 +13,7 @@ $routes = [
     '/companies_new' => fn() => (new CompaniesController())->add_companie(),
     '/permissions' => fn() => (new PermissionsController())->getAll_permissions(),
     '/roles' => fn() => (new RolesController())->getAll_roles(),
-   /* '/types' => fn() => (new TypesController())->getAll_types(),*/
+   '/types' => fn() => (new TypesController())->getAll_types(),
     '/users' => fn() => (new UsersController())->getAll_users(),
 ];
 

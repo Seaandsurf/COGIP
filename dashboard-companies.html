@@ -181,13 +181,28 @@
                         <input id="companies_country" name="country" class="bg-slate-100 mt-11 p-2" type="text" placeholder="Country">
                         <label for="country"></label>
                         <select id="type_id" name="type_id" class="bg-slate-100 mt-11 p-2">
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                        </select>
+                            <script>
+                                fetch('http://localhost/COGIP/backend/api.php/types')
+                                    .then(response => {
+                                        if (!response.ok) {
+                                            throw new Error('bip bip error');
+                                        }
+                                        return response.json();
+                                    })
+                                    .then(types => {
+                                        let selectElement = document.getElementById('type_id');
+                                        types.forEach(type => {
+                                            let option = document.createElement('option');
+                                            option.value = type.id; 
+                                            option.textContent = type.name; 
+                                            selectElement.appendChild(option);
+                                        });
+                                    })
+                                    .catch(error => console.error('Erreur lors de la récupération des types :', error));
+                            </script>
+                            </select>
                         <label for="type_id">Type ID</label>
+
 
                         <div class="flex w-full">
                         <input id="contact" name="type" class="bg-slate-100 mt-11 p-2 w-full" type="radio" checked>
