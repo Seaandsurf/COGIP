@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
+   
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,8 +8,8 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <title>Dashboard</title>
 </head>
-
-<body>
+<form action="/COGIP/backend/api.php/invoice_new" method="post" id="contactForm" enctype="multipart/form-data">
+    
     <div class="flex w-full h-min">
         <div class="flex flex-col w-1/6">
             <div class="flex flex-col items-center m-0 h-min p-8">
@@ -176,7 +176,27 @@
                         <label for="date"></label>
                         <input id="invoices_price" name="price" class="bg-slate-100 mt-11 p-2" type="number" placeholder="Price">
                         <label for="price"></label>
-                        <input id="invoices_companyName" name="company-name" class="bg-slate-100 mt-11 p-2" type="text" placeholder="Company name">
+                        <select id="invoices_companyName" name="company-name" class="bg-slate-100 mt-11 p-2" type="text" placeholder="Company name">
+                        <script>
+                            fetch('http://localhost/COGIP/backend/api.php/companies')
+                                .then(response => {
+                                    if (!response.ok) {
+                                        throw new Error('bip bip error');
+                                    }
+                                    return response.json();
+                                })
+                                .then(companies => {
+                                    let selectElement = document.getElementById('invoices_companyName');
+                                    companies.forEach(company => {
+                                        let option = document.createElement('option');
+                                        option.value = company.id; 
+                                        option.textContent = company.name; 
+                                        selectElement.appendChild(option);
+                                    });
+                                })
+                                .catch(error => console.error('Erreur lors de la récupération des types :', error));
+                        </script>
+                        </select>
                         <label for="company-name"></label>
                         <input class="bg-indigo-300 mt-11 w-full text-left p-2" type="submit" value="Save">
                     </form>

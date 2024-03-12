@@ -18,16 +18,18 @@ class ContactsController {
             // Call Validation
 
             $name = $_POST['name'];
-            $email = $_POST['email'];
+            $email = $_POST['mail'];
             $phone = $_POST['phone'];
-            $company_id = $_POST['company_id'];
+            $company_id = $_POST['company-name'];
 
             $res = Contacts::insertContacts($name, $email, $phone, $company_id);
 
             sendJson($res);
+            print('shabadabada');
         } else {
-            print('405 Method Not Allowed');
+            print('405 Method Not Allowed biz biz');
             exit();
         }
     }
+
 }

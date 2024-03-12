@@ -10,6 +10,8 @@
 </head>
 
 <body>
+      <!-- J'ai rajouté un form -->
+    <form action="/COGIP/backend/api.php/contact_new" method="post" id="contactForm" enctype="multipart/form-data">
     <div class="flex w-full h-min">
         <div class="flex flex-col w-1/6">
             <div class="flex flex-col items-center m-0 h-min p-8">
@@ -174,9 +176,29 @@
                         <label for="name"></label>
                         <input id="contacts_phone" name="phone" class="bg-slate-100 mt-11 p-2" type="text" placeholder="Phone">
                         <label for="phone"></label>
-                        <input id="contacts_phone" name="mail" class="bg-slate-100 mt-11 p-2" type="text" placeholder="Mail">
+                        <input id="contacts_mail" name="mail" class="bg-slate-100 mt-11 p-2" type="text" placeholder="Mail">
                         <label for="mail"></label>
-                        <input id="contacts_companyName" name="company-name" class="bg-slate-100 mt-11 p-2" type="text" placeholder="Company name">
+                        <select id="contacts_companyName" name="company-name" class="bg-slate-100 mt-11 p-2" type="text" placeholder="Company name">
+                            <script>
+                                fetch('http://localhost/COGIP/backend/api.php/companies')
+                                    .then(response => {
+                                        if (!response.ok) {
+                                            throw new Error('bip bip error');
+                                        }
+                                        return response.json();
+                                    })
+                                    .then(companies => {
+                                        let selectElement = document.getElementById('contacts_companyName');
+                                        companies.forEach(company => {
+                                            let option = document.createElement('option');
+                                            option.value = company.id; 
+                                            option.textContent = company.name; 
+                                            selectElement.appendChild(option);
+                                        });
+                                    })
+                                    .catch(error => console.error('Erreur lors de la récupération des types :', error));
+                            </script>
+                         </select>
                         <label for="company-name"></label>
                         <input id="contacts_date" name="date" class="bg-slate-100 mt-11 p-2" type="date" placeholder="Date">
                         <label for="date"></label>
@@ -186,6 +208,7 @@
             </div>
         </div>
     </div>
+</form>
 </body>
 
 </html>
