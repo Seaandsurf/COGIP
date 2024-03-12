@@ -2,6 +2,7 @@
 require_once('models/connexion.php');
 require_once('models/date.php');
 require_once('models/contacts.php');
+require_once('models/validation.php');
 class ContactsController {
     public function getAll_contacts() {
         $limit = intval($_GET['limit'] ?? '-1');
@@ -14,6 +15,9 @@ class ContactsController {
     }     
 
     public function addNewContact() {
+        $validation_string = new validation();
+        $validation_phone = new validation();
+        $validation_mail = new validation();
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             // Call Validation
 
@@ -22,10 +26,22 @@ class ContactsController {
             $phone = $_POST['phone'];
             $company_id = $_POST['company-name'];
 
-            $res = Contacts::insertContacts($name, $email, $phone, $company_id);
+            if ($name && $email && $phone && $company_id 
+            && $validation_string->string_Input($name)
+            && $validation_phone->number_Input($phone )
+            && $validation_mail->email_Input($email)){
 
-            sendJson($res);
-            print('shabadabada');
+            $res = Contacts::insertContacts($name, $email, $phone, $company_id);
+            header('Location: http://localhost/COGIP/dashboard-contacts.html');
+            exit();
+        } else {
+            echo "veuillez remplir tous les champs du formulaire avec les donnés adéquate <br>";
+       
+            echo $name . "<br>";
+            echo $email . "<br>  --> example : example@example.com";
+            echo $phone . "<br>   --> example : 1234567890";
+            echo $company_id. "<br>";
+        }
         } else {
             print('405 Method Not Allowed biz biz');
             exit();

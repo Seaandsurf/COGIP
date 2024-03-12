@@ -37,18 +37,19 @@ class Contacts {
         return $contacts;
     }
 
-    public static function insertContacts($name, $email, $phone, $company_id){
-            $pdo = connect_db();
+    public static function insertContacts($name, $email, $phone, $company_id) {
+        $pdo = connect_db();
+    
+        $sql = 'INSERT INTO contacts (name, email, phone, company_id) VALUES (:name, :email, :phone, :company_id)';
+    
+        $stmt = $pdo->prepare($sql);
+    
+        $stmt->bindParam(':name', $name, PDO::PARAM_STR);
+        $stmt->bindParam(':email', $email, PDO::PARAM_STR);
+        $stmt->bindParam(':phone', $phone, PDO::PARAM_STR);
+        $stmt->bindParam(':company_id', $company_id, PDO::PARAM_INT);
+    
+        return $stmt->execute();
+    }
 
-            $sql = 'INSERT INTO contacts (name, email, phone, company_id) VALUES (:name, :email, :phone, :company_id)';
-
-            $stmt = $pdo->prepare($sql);
-
-            $stmt->bindParam(':name', $name, PDO::PARAM_STR);
-            $stmt->bindParam(':mail', $email, PDO::PARAM_STR);
-            $stmt->bindParam(':phone', $phone, PDO::PARAM_STR);
-            $stmt->bindParam(':company_id', $company_id, PDO::PARAM_INT);
-
-            return $stmt->execute();
-        } 
 }
