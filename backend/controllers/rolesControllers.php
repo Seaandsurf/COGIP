@@ -2,18 +2,13 @@
 require_once('models/date.php');
 class RolesController {
     
-    private $pdo;
-
-    public function __construct(PDO $pdo) {
-        $this->pdo = $pdo;
-    }
-
     public function getAll_roles() {
-        $rolesQuery = $this->pdo->query('SELECT * FROM roles');
-        $roles= $rolesQuery->fetchAll(PDO::FETCH_ASSOC);
-        formatDataDates($roles, ['created_at', 'updated_at']);
-       
-        return $roles;
+        $limit = intval($_GET['limit'] ?? '-1');
 
+        $roles = Roles::getAll($limit);
+        formatDataDates($roles, ['created_at', 'updated_at']);
+        
+        // Défini dans "indexController.inc.php".
+        sendJson($roles);
     }
 }

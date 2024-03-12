@@ -31,8 +31,21 @@ class Invoices {
 
         $invoices = $invoicesQuery->fetchAll(PDO::FETCH_ASSOC);
 
-       
-
         return $invoices;
+    }
+    public static function insertInvoices($ref, $id_company, $price, $date_due)
+    {
+        $pdo = connect_db();
+    
+        $sql = 'INSERT INTO invoices (ref, id_company, price, date_due) VALUES (:ref, :id_company, :price, :date_due)';
+    
+        $stmt = $pdo->prepare($sql);
+    
+        $stmt->bindParam(':ref', $ref, PDO::PARAM_STR);
+        $stmt->bindParam(':id_company', $id_company, PDO::PARAM_INT);
+        $stmt->bindParam(':price', $price, PDO::PARAM_INT);
+        $stmt->bindParam(':date_due', $date_due, PDO::PARAM_STR);
+    
+        return $stmt->execute();
     }
 }
