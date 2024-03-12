@@ -14,9 +14,10 @@ class Contacts {
         $this->phone =  $phone;
         $this->created_at = $created_at;
         $this->updated_at = $updated_at;
-    
     }
-    public static function getAllContactsWithCompanyName($limit) {
+
+    public static function getAllContactsWithCompanyName($limit) 
+    {
         $pdo = connect_db();
 
         $baseSql = 'SELECT contacts.*, companies.name as company_name ';
@@ -33,8 +34,21 @@ class Contacts {
 
         $contacts = $contactsQuery->fetchAll(PDO::FETCH_ASSOC);
 
-       
-
         return $contacts;
     }
+
+    public static function insertContacts($name, $email, $phone, $company_id){
+            $pdo = connect_db();
+
+            $sql = 'INSERT INTO contacts (name, email, phone, company_id) VALUES (:name, :email, :phone, :company_id)';
+
+            $stmt = $pdo->prepare($sql);
+
+            $stmt->bindParam(':name', $name, PDO::PARAM_STR);
+            $stmt->bindParam(':mail', $email, PDO::PARAM_STR);
+            $stmt->bindParam(':phone', $phone, PDO::PARAM_STR);
+            $stmt->bindParam(':company_id', $company_id, PDO::PARAM_INT);
+
+            return $stmt->execute();
+        } 
 }

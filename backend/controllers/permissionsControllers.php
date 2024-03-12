@@ -1,4 +1,7 @@
 <?php 
+
+require_once('models/permissions.php');
+require_once('models/connexion.php');
 require_once('models/date.php');
 class permissionsController {
     public function getAll_permissions() {
@@ -9,5 +12,7 @@ class permissionsController {
         
         // Défini dans "indexController.inc.php".
         sendJson($permissions);
-    }
+  }
+
+
 }

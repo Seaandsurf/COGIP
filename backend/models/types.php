@@ -27,8 +27,7 @@ class Types {
 
         $types = $typesQuery->fetchAll(PDO::FETCH_ASSOC);
 
-       
-
+    
         return $types;
     }
 }
