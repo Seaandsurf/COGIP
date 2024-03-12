@@ -14,11 +14,10 @@ class InvoicesController {
     public function addNewInvoice() {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             // Call Validation
-    
-            $ref = $_POST['ref'];
-            $id_company = $_POST['id_company'];
+            $ref = $_POST['reference'];
+            $id_company = $_POST['company-name'];
             $price = $_POST['price'];
-            $date_due = $_POST['date_due'];
+            $date_due = $_POST['date'];
     
             $res = Invoices::insertInvoices($ref, $id_company, $price, $date_due);
     
@@ -29,3 +28,5 @@ class InvoicesController {
         }
     }
 }
+
+

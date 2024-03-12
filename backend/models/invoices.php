@@ -35,26 +35,17 @@ class Invoices {
     }
     public static function insertInvoices($ref, $id_company, $price, $date_due)
     {
-        try {
-            $pdo = connect_db();
-
-            $sql = 'INSERT INTO invoices (ref, id_company,price,date_due) VALUES (:ref, :id_company,:price,:date_due)';
-
-            $stmt = $pdo->prepare($sql);
-
-            $stmt->bindParam(':ref', $ref, PDO::PARAM_STR);
-            $stmt->bindParam(':id_company', $id_company, PDO::PARAM_INT);
-            $stmt->bindParam(':price', $price, PDO::PARAM_INT);
-            $stmt->bindParam(':date_due', $date_due, PDO::PARAM_STR);
-
-            return [
-                "result" => $stmt->execute()
-            ];
-        } catch (PDOException $e) {
-            return [
-                "result" => false,
-                "error" => $e
-            ];
-        }
+        $pdo = connect_db();
+    
+        $sql = 'INSERT INTO invoices (ref, id_company, price, date_due) VALUES (:ref, :id_company, :price, :date_due)';
+    
+        $stmt = $pdo->prepare($sql);
+    
+        $stmt->bindParam(':ref', $ref, PDO::PARAM_STR);
+        $stmt->bindParam(':id_company', $id_company, PDO::PARAM_INT);
+        $stmt->bindParam(':price', $price, PDO::PARAM_INT);
+        $stmt->bindParam(':date_due', $date_due, PDO::PARAM_STR);
+    
+        return $stmt->execute();
     }
 }
