@@ -1,7 +1,7 @@
 fetch("countries-flag.json")
   .then((response) => response.json())
   .then((data) => {
-    const selectElement = document.getElementById("countryFlag");
+    const selectElement = document.getElementById("companies_country");
 
     data.forEach((country) => {
       const optionElement = document.createElement("option");

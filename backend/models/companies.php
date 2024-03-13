@@ -47,7 +47,7 @@ class Companies {
         $stmt->bindParam(':country', $country, PDO::PARAM_STR);
         $stmt->bindParam(':tva', $tva, PDO::PARAM_STR);
         $stmt->bindParam(':type_id', $type_id, PDO::PARAM_STR);
-        $stmt->bindParam(':supplier', $supplier, PDO::PARAM_BOOL); // Assuming $supplier is already a boolean
+        $stmt->bindParam(':supplier', $supplier, PDO::PARAM_BOOL);
     
         return $stmt->execute();
     }

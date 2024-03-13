@@ -22,7 +22,7 @@ public function add_companie (){
        
         $name = $_POST['name'] ?? null;
         $country = $_POST['country'] ?? null;
-        $tva = $_POST['tva'] ?? null;
+        $tva = strtoupper(substr($country, 2)) . $_POST['tva'] ?? null;
         $type_id = $_POST['type_id'] ?? null;
         $supplier= $_POST['supplier'] ?? null;
 
@@ -33,7 +33,6 @@ public function add_companie (){
             $supplier_bool = filter_var($supplier, FILTER_VALIDATE_BOOLEAN);
             $success = Companies::add_companies($name, $country, $tva, $type_id, $supplier_bool);
             header('Location: http://localhost/COGIP/dashboard-companies.html');
-            // Make sure to exit after the redirect to prevent further execution
             exit();
 
         } else {

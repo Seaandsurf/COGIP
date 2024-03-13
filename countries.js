@@ -2,7 +2,7 @@ fetch("countries.json")
   .then((response) => response.json())
   .then((data) => {
     // Récupérer l'élément de liste déroulante
-    const countryDropdown = document.getElementById("countryDropdown");
+    const countryDropdown = document.getElementById("companies_country");
 
     // Boucler à travers les données et ajouter chaque pays comme une option
     data.forEach((country) => {
