@@ -3,10 +3,12 @@
   crossorigin="anonymous"
 ></script>
 <script src="https://cdn.tailwindcss.com"></script>
-<footer class="w-screen mt-32">
+<footer class="w-screen mt-32 md:p-12">
   <div class="mt-10 mb-10 h-px w-full border-t-2 border-indigo-500"></div>
 
-  <div class="flex flex-col items-center justify-center w-full mb-10">
+  <div
+    class="flex flex-col items-center justify-center w-full mb-10 md:flex-row"
+  >
     <div class="w-screen flex justify-center items-center mb-4">
       <a
         class="text-5xl font-bold text-center items-center px-1 border-8 border-indigo-500"
@@ -78,10 +80,10 @@
   ></div>
 
   <div
-    class="flex flex-col justify-center items-center w-screen text-s"
+    class="flex flex-col md:flex-row justify-center items-center w-full text-s"
     style="color: rgba(115, 115, 115, 1)"
   >
-    <ul class="flex w-full justify-between cursor-pointer p-2">
+    <ul class="flex w-3/5 justify-start cursor-pointer p-2">
       <li><a>Home</a></li>
       <li><a>Invoices</a></li>
       <li><a>Companies</a></li>
