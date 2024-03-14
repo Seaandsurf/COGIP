@@ -33,4 +33,12 @@ class Validation {
     public function password_strenght($value){
         
     }
+
+    public function phone_input ($value){
+    if(!preg_match('/^[0-9]{10}+$/', $value)) {
+        return false;
+    } else {
+        return true;
+    }
+}
 }

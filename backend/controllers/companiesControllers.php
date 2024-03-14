@@ -22,15 +22,18 @@ public function add_companie (){
        
         $name = $_POST['name'] ?? null;
         $country = $_POST['country'] ?? null;
-        $tva = $_POST['tva'] ?? null;
+        $tva = strtoupper(substr($country, 2)) . $_POST['tva'] ?? null;
         $type_id = $_POST['type_id'] ?? null;
+        $supplier= $_POST['supplier'] ?? null;
 
-        if ($name && $country && $tva && $type_id 
+        if ($name && $country && $tva && $type_id !== null && $supplier !== null
         && $validation_string->string_Input($name)
         && $validation_int->number_Input($tva)) {
       
-            $success = Companies::add_companies($name, $country, $tva, $type_id);
-            sendJson($success);
+            $supplier_bool = filter_var($supplier, FILTER_VALIDATE_BOOLEAN);
+            $success = Companies::add_companies($name, $country, $tva, $type_id, $supplier_bool);
+            header('Location: http://localhost/COGIP/dashboard-companies.html');
+            exit();
 
         } else {
             echo "veuillez remplir tous les champs du formulaire avec les donnés adéquate <br>";
@@ -39,7 +42,6 @@ public function add_companie (){
             echo $country . "<br>";
             echo $tva . "<br>";
             echo $type_id . "<br>";
-
         }
     } else {
         echo "Invalid request method!";
