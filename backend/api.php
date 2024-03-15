@@ -4,6 +4,7 @@
 
 require_once('controllers/indexControllers.inc.php');
 
+
 $routes = [
     '/invoices' => fn() => (new InvoicesController())->getAll_invoices(),
     '/invoice_new' => fn() => (new InvoicesController())->addNewInvoice(),

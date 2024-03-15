@@ -1,8 +1,8 @@
 <?php 
-require_once('models/connexion.php');
-require_once('models/date.php');
-require_once('models/contacts.php');
-require_once('models/validation.php');
+require_once(__DIR__ . '/../models/connexion.php');
+require_once(__DIR__ . '/../models/date.php');
+require_once(__DIR__ . '/..//models/contacts.php');
+require_once(__DIR__ . '/../models/validation.php');
 class ContactsController {
     public function getAll_contacts() {
         $limit = intval($_GET['limit'] ?? '-1');
@@ -47,5 +47,19 @@ class ContactsController {
             exit();
         }
     }
-
+    
+    public function get_contactByID($id) {
+        $pdo = connect_db();
+    
+        $sql = 'SELECT name, email, phone FROM contacts WHERE id = :id';
+    
+        $stmt = $pdo->prepare($sql);
+        $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+        $stmt->execute();
+    
+        $contact = $stmt->fetch(PDO::FETCH_ASSOC);
+    
+        return $contact ? $contact : null;
+    }
+    
 }

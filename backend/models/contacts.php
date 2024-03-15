@@ -51,5 +51,18 @@ class Contacts {
     
         return $stmt->execute();
     }
+    public static function get_contactByID($id) {
+        $pdo = connect_db();
+    
+        $sql = 'SELECT * FROM contacts WHERE id = :id';
+    
+        $stmt = $pdo->prepare($sql);
+        $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+        $stmt->execute();
+    
+        $contact = $stmt->fetch(PDO::FETCH_ASSOC);
+    
+        return $contact ? $contact : null;
+    }
 
 }
