@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -8,10 +9,11 @@
       crossorigin="anonymous"
     ></script>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script type="module" src="./assets/tabs.js"></script>
     <title>Dashboard</title>
   </head>
 
-  <body class="h-screen">
+  <body>
     <div class="flex w-full h-min">
       <div class="flex flex-col w-[15%] items-center justify-center">
         <div class="flex flex-col items-center m-0 h-min p-[5%]">
@@ -50,10 +52,7 @@
                 />
                 <path d="M0.354858 6.03223H21.2903" stroke="#9698D6" />
               </svg>
-              <a
-                href="dashboard.html"
-                class="text-[10px] self-center font-bold"
-              >
+              <a href="dashboard.html" class="text-[10px] self-center">
                 Dashboard</a
               >
             </li>
@@ -142,7 +141,10 @@
                 />
                 <circle cx="11" cy="8.41174" r="4.02941" stroke="#9698D6" />
               </svg>
-              <a href="dashboard-contacts.html" class="text-[10px] self-center">
+              <a
+                href="dashboard-contacts.html"
+                class="text-[10px] self-center font-bold"
+              >
                 Contacts</a
               >
             </li>
@@ -170,7 +172,7 @@
           />
           <div class="flex flex-col h-full max-h-52 p-12">
             <div class="text-3xl font-black">Dashboard</div>
-            <div>dashboard/</div>
+            <div>dashboard/new-contact</div>
           </div>
           <div
             class="flex flex-col h-full max-h-52 bg-indigo-300 rounded-md w-full justify-center"
@@ -193,19 +195,91 @@
               <div class="text-lg font-bold p-6">Statistics</div>
               <div class="flex justify-between p-10 pt-4 text-xs text-center">
                 <div
+                id ="contacts_number"
                   class="w-16 h-16 rounded-full bg-indigo-300 flex items-center"
                 >
-                  156 invoices
+                <script>
+                  fetch('http://localhost/COGIP/backend/api.php/contacts')
+                    .then(response => {
+                      if (!response.ok) {
+                        throw new Error('Failed to fetch data from the API');
+                      }
+                      return response.json();
+                    })
+                    .then(contacts => {
+                      let nameCounts = {};
+                      contacts.forEach(company => {
+                        let name = contacts.name;
+                        nameCounts[name] = (nameCounts[name] || 0) + 1;
+                      });
+
+                      let totalSum = Object.values(nameCounts).reduce((sum, count) => sum + count, 0);
+                      let sum_contacts= document.getElementById("contacts_number");
+
+                      sum_contacts.textContent = (totalSum + " contacts ");
+                    })
+                    .catch(error => {
+                      console.error('Error fetching data from the API:', error);
+                    });
+                </script>
                 </div>
                 <div
+                id ="invoices_number"
                   class="w-16 h-16 rounded-full bg-indigo-300 flex items-center"
                 >
-                  245 contacts
+                <script>
+                  fetch('http://localhost/COGIP/backend/api.php/invoices')
+                    .then(response => {
+                      if (!response.ok) {
+                        throw new Error('Failed to fetch data from the API');
+                      }
+                      return response.json();
+                    })
+                    .then(invoices=> {
+                      let nameCounts = {};
+                      invoices.forEach(contact => { 
+                        let name = invoices.name;
+                        nameCounts[name] = (nameCounts[name] || 0) + 1;
+                      });
+              
+                      let totalSum = Object.values(nameCounts).reduce((sum, count) => sum + count, 0);
+                      let sumContactsElement = document.getElementById("invoices_number"); 
+                
+                      sumContactsElement.textContent = totalSum + " invoices"; 
+                    })
+                    .catch(error => {
+                      console.error('Error fetching data from the API:', error);
+                    });
+                </script>
                 </div>
                 <div
+                id ="companies_number"
                   class="w-16 h-16 rounded-full bg-indigo-300 flex items-center"
                 >
-                  112 companies
+                <script>
+                  fetch('http://localhost/COGIP/backend/api.php/companies')
+                    .then(response => {
+                      if (!response.ok) {
+                        throw new Error('Failed to fetch data from the API');
+                      }
+                      return response.json();
+                    })
+                    .then(companies => {
+                      let nameCounts = {};
+                      companies.forEach(company => {
+                        let name = company.name;
+                        nameCounts[name] = (nameCounts[name] || 0) + 1;
+                      });
+
+                      let totalSum = Object.values(nameCounts).reduce((sum, count) => sum + count, 0);
+                      let sum_companies= document.getElementById("companies_number");
+
+                      sum_companies.textContent = (totalSum + " companies ");
+                    })
+                    .catch(error => {
+                      console.error('Error fetching data from the API:', error);
+                    });
+                </script>
                 </div>
               </div>
             </div>
@@ -217,20 +291,90 @@
                   style="color: rgba(115, 115, 115, 1)"
                 ></div>
               </div>
-              <div class="px-6 pb-6">
+              <div id="lastContacts_dashboard" class="px-6 pb-6">
                 <table class="w-full border-separate border-spacing-y-5">
-                  <tr>
-                    <th class="text-xs text-left">Name</th>
-                    <th class="text-xs text-left">Phone</th>
-                    <th class="text-xs text-left">Email</th>
-                  </tr>
-                  <tr>
-                    <td class="text-xs text-left">John Doe</td>
-                    <td class="text-xs text-left">01234567890</td>
-                    <td class="text-xs text-left">john.doe@gmail.com</td>
-                  </tr>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Company Name</th>
+                            <th>Email</th>
+                            <th>Phone</th>
+                            <th>Created At</th>
+                            <th>Updated At</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td>
+                                <button class="deleteBtn">Delete</button>
+                                <button class="updateBtn">
+                                  <a href="http://localhost/COGIP/update-contacts.html">Update</a>
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                          <td></td>
+                          <td></td>
+                          <td></td>
+                          <td></td>
+                          <td></td>
+                          <td></td>
+                          <td>
+                              <button class="deleteBtn">Delete</button>
+                              <button class="updateBtn">
+                                <a href="http://localhost/COGIP/update-contacts.html">Update</a>
+                              </button>
+                          </td>
+                      </tr> <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>
+                            <button class="deleteBtn">Delete</button>
+                            <button class="updateBtn">
+                              <a href="http://localhost/COGIP/update-contacts.html">Update</a>
+                            </button>
+                        </td>
+                    </tr> <tr>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td>
+                          <button class="deleteBtn">Delete</button>
+                          <button class="updateBtn">
+                            <a href="http://localhost/COGIP/update-contacts.html">Update</a>
+                          </button>
+                      </td>
+                  </tr> <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>
+                        <button class="deleteBtn">Delete</button>
+                        <button class="updateBtn">
+                          <a href="http://localhost/COGIP/update-contacts.html">Update</a>
+                        </button>
+                    </td>
+                </tr>
+                    </tbody>
                 </table>
-              </div>
+            </div>
             </div>
           </div>
           <div class="w-full p-4 md:w-1/2">
@@ -242,20 +386,93 @@
                   style="color: rgba(115, 115, 115, 1)"
                 ></div>
               </div>
-              <div class="px-6 pb-6">
+              <div id="lastInvoices_dashboard" class="px-6 pb-6">
                 <table class="w-full border-separate border-spacing-y-5">
-                  <tr>
-                    <th class="text-xs text-left">Invoice Number</th>
-                    <th class="text-xs text-left">Date</th>
-                    <th class="text-xs text-left">Company</th>
-                  </tr>
-                  <tr>
-                    <td class="text-xs text-left">AZERTY12345</td>
-                    <td class="text-xs text-left">29/02/2024</td>
-                    <td class="text-xs text-left">John Doe Corporate</td>
-                  </tr>
+                    <thead>
+                        <tr>
+                            <th>Ref</th>
+                            <th>Date Due</th>
+                            <th>Price</th>
+                            <th>Company Name</th>
+                            <th>Created At</th>
+                            <th>Updated At</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td>
+          
+                                <button class="deleteBtn">Delete</button>
+                                <button class="updateBtn">
+                                  <a href="http://localhost/COGIP/update-invoices.html">Update</a>
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td>
+                                <button class="deleteBtn">Delete</button>
+                                <button class="updateBtn">
+                                  <a href="http://localhost/COGIP/update-invoices.html">Update</a>
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td>
+                                <button class="deleteBtn">Delete</button>
+                                <button class="updateBtn">
+                                  <a href="http://localhost/COGIP/update-invoices.html">Update</a>
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td>
+                                <button class="deleteBtn">Delete</button>
+                                <button class="updateBtn">
+                                  <a href="http://localhost/COGIP/update-invoices.html">Update</a>
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td>
+                                <button class="deleteBtn">Delete</button>
+                                <button class="updateBtn">
+                                  <a href="http://localhost/COGIP/update-invoices.html">Update</a>
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
                 </table>
-              </div>
             </div>
             <div class="bg-white rounded-md w-full mt-8">
               <div class="text-lg font-bold p-6">
@@ -265,20 +482,84 @@
                   style="color: rgba(115, 115, 115, 1)"
                 ></div>
               </div>
-              <div class="px-6 pb-6">
+              <div id="lastCompanies_dashboard" class="px-6 pb-6">
                 <table class="w-full border-separate border-spacing-y-5">
-                  <tr>
-                    <th class="text-xs text-left">Name</th>
-                    <th class="text-xs text-left">TVA</th>
-                    <th class="text-xs text-left">Country</th>
-                  </tr>
-                  <tr>
-                    <td class="text-xs text-left">John Doe Corporate</td>
-                    <td class="text-xs text-left">BE66 7898 7898 7898</td>
-                    <td class="text-xs text-left">Belgium</td>
-                  </tr>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Country</th>
+                            <th>TVA</th>
+                            <th>Created At</th>
+                            <th>Updated At</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td>
+                                <button class="deleteBtn">Delete</button>
+                                <button class="updateBtn">
+                                  <a href="http://localhost/COGIP/update-companies.html">Update</a>
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                          <td></td>
+                          <td></td>
+                          <td></td>
+                          <td></td>
+                          <td></td>
+                          <td>
+                              <button class="deleteBtn">Delete</button>
+                              <button class="updateBtn">
+                                <a href="http://localhost/COGIP/update-companies.html">Update</a>
+                              </button>
+                          </td>
+                      </tr> <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>
+                            <button class="deleteBtn">Delete</button>
+                            <button class="updateBtn">
+                              <a href="http://localhost/COGIP/update-companies.html">Update</a>
+                            </button>
+                        </td>
+                    </tr> <tr>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td>
+                          <button class="deleteBtn">Delete</button>
+                          <button class="updateBtn">
+                            <a href="http://localhost/COGIP/update-companies.html">Update</a>
+                          </button>
+                      </td>
+                  </tr> <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>
+                        <button class="deleteBtn">Delete</button>
+                        <button class="updateBtn">
+                          <a href="http://localhost/COGIP/update-companies.html">Update</a>
+                        </button>
+                    </td>
+                </tr>
+                    </tbody>
                 </table>
-              </div>
+            </div>
             </div>
           </div>
         </div>
@@ -286,3 +567,7 @@
     </div>
   </body>
 </html>
+
+
+
+  
