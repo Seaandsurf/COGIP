@@ -1,8 +1,8 @@
 <?php 
-require_once('models/connexion.php');
-require_once('models/date.php');
-require_once('models/companies.php');
-require_once('models/validation.php');
+require_once('backend/models/connexion.php');
+require_once('backend/models/date.php');
+require_once('backend/models/companies.php');
+require_once('backend/models/validation.php');
 
 class CompaniesController {
     public function getAll_companies() {
