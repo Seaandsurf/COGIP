@@ -1,13 +1,14 @@
 <?php
 // thomas, mathias, robin : changer mots de passe
-function connect_db() {
+function connect_db()
+{
     $host = "localhost";
     $database = "cogip";
     $username = "root";
-    $password ="";
+    $password = "";
     $pdo = new PDO("mysql:host=$host;dbname=$database", $username, $password);
-     return $pdo;
- }
+    return $pdo;
+}
 
 
  /*
@@ -21,9 +22,3 @@ function connect_db() {
     return $pdo;
 }
 */
-
-
-
-
-
-
