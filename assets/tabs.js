@@ -246,7 +246,7 @@ async function afficherLastContacts_dashboard() {
   const table = document
     .getElementById("lastContacts_dashboard")
     .querySelector("tbody");
-  const lastContacts = await getDataLimit("backend/api.php/contacts", 5);
+  const lastContacts = await getDataLimit("./backend/api.php/contacts", 5);
   const rows = table.querySelectorAll("tr");
 
   lastContacts.forEach((last_contact, index) => {
@@ -287,7 +287,7 @@ async function afficherLastCompanies_dashboard() {
 
       const compayId = last_company.id;
       const updateBtn = rows[index].querySelector(".updateBtn a");
-      updateBtn.href = `http://localhost/COGIP/update-company.html?id=${compayId}`;
+      updateBtn.href = `http://localhost/COGIP/update_companies.php?id=${compayId}`;
       const deleteBtn = rows[index].querySelector(".deleteBtn");
       deleteBtn.id = compayId;
     }
@@ -317,7 +317,7 @@ async function afficherLastInvoices_dashboard() {
         `http://localhost/COGIP/update-invoices.html?id=${invoicesId}`
       );
       const updateBtn = rows[index].querySelector(".updateBtn a");
-      updateBtn.href = `http://localhost/COGIP/update-invoices.html?id=${invoicesId}`;
+      updateBtn.href = `http://localhost/COGIP/update-invoices.php?id=${invoicesId}`;
       console.log(
         `http://localhost/COGIP/update-invoices.html?id=${invoicesId}`
       );

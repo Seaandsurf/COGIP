@@ -287,7 +287,7 @@ async function afficherLastCompanies_dashboard() {
 
       const compayId = last_company.id;
       const updateBtn = rows[index].querySelector(".updateBtn a");
-      updateBtn.href = `http://localhost/COGIP/update-company.php?id=${compayId}`;
+      updateBtn.href = `http://localhost/COGIP/update_companies.php?id=${compayId}`;
       const deleteBtn = rows[index].querySelector(".deleteBtn");
       deleteBtn.id = compayId;
     }

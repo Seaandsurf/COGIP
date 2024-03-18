@@ -1,8 +1,8 @@
 <?php 
-require_once('models/connexion.php');
-require_once('models/date.php');
-require_once('models/companies.php');
-require_once('models/validation.php');
+require_once(__DIR__ . '/../models/connexion.php');
+require_once(__DIR__ . '/../models/date.php');
+require_once(__DIR__ . '/../models/companies.php');
+require_once(__DIR__ . '/../models/validation.php');
 
 class CompaniesController {
     public function getAll_companies() {
@@ -45,6 +45,30 @@ public function add_companie (){
         }
     } else {
         echo "Invalid request method!";
+    }
+}
+
+public function get_companyByID($id) {
+    $pdo = connect_db();
+
+    $sql = 'SELECT name, type_id, tva, country, supplier FROM companies WHERE id = :id';
+
+    $stmt = $pdo->prepare($sql);
+    $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+    $stmt->execute();
+
+    $company = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    return $company ? $company : null;
+}
+public function update_company($name, $type_id, $tva, $country, $companyId,$supplier) {
+    $isUpdated = Companies::update_companies($name, $type_id, $tva, $country, $supplier, $companyId);
+
+    if ($isUpdated) {
+        header('Location: http://localhost/COGIP/dashboard');
+        exit();
+    } else {
+        return false;
     }
 }
 }

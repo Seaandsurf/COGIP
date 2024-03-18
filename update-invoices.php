@@ -3,6 +3,7 @@ require_once('backend/controllers//invoicesControllers.php');
 require_once('backend/models/invoices.php');
 
 $invoiceId = isset($_GET['id']) ? $_GET['id'] : null;
+echo $invoiceId ;
 
 $invoicesController = new InvoicesController();
 $invoice = $invoicesController->get_invoiceByID($invoiceId);
@@ -18,8 +19,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $updatedRef = $_POST['ref'];
     $updatedPrice = $_POST['price'];
     $companyId = $_POST['company-name'];
-
-    $isUpdated = $invoicesController->update_invoice($updatedRef, $updatedPrice, $companyId, $invoiceID); // Corrected variable refs
+  
+    $isUpdated = $invoicesController->update_invoice($updatedRef, $updatedPrice, $companyId, $invoiceId);
 
     if ($isUpdated) {
         echo "invoice updated successfully.";
@@ -45,7 +46,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     name="company-name"
     class="bg-slate-100 mt-11 p-2"
     type="text"
-    placeholder="Company ref"
+    placeholder="Company name"
   >
     <script>
       fetch("http://localhost/COGIP/backend/api.php/companies")
@@ -62,7 +63,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
           companies.forEach((company) => {
             let option = document.createElement("option");
             option.value = company.id;
-            option.textContent = company.ref;
+            option.textContent = company.name;
             selectElement.appendChild(option);
           });
         })
