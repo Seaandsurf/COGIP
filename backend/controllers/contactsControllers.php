@@ -61,5 +61,20 @@ class ContactsController {
     
         return $contact ? $contact : null;
     }
+
+    public function update_contact($name, $email, $phone, $company_id, $contactId) {
+
+        $isUpdated = Contacts::update_Contacts($name, $email, $phone, $company_id, $contactId);
     
-}
+        if ($isUpdated) {
+            echo ("bite");
+            header('Location: http://localhost/COGIP/dashboard');
+            exit();
+        } else {
+        
+            return false;
+        }
+    }
+    }
+    
+    

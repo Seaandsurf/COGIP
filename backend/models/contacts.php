@@ -51,18 +51,23 @@ class Contacts {
     
         return $stmt->execute();
     }
-    public static function get_contactByID($id) {
+    public static function update_Contacts($name, $email, $phone, $company_id, $contactId) {
         $pdo = connect_db();
     
-        $sql = 'SELECT * FROM contacts WHERE id = :id';
+        $sql = 'UPDATE contacts SET name = :name, email = :email, phone = :phone, company_id = :company_id WHERE id = :contactId';
     
         $stmt = $pdo->prepare($sql);
-        $stmt->bindParam(':id', $id, PDO::PARAM_INT);
-        $stmt->execute();
     
-        $contact = $stmt->fetch(PDO::FETCH_ASSOC);
+        $stmt->bindParam(':name', $name, PDO::PARAM_STR);
+        $stmt->bindParam(':email', $email, PDO::PARAM_STR);
+        $stmt->bindParam(':phone', $phone, PDO::PARAM_STR);
+        $stmt->bindParam(':company_id', $company_id, PDO::PARAM_INT);
+        $stmt->bindParam(':contactId', $contactId, PDO::PARAM_INT);
     
-        return $contact ? $contact : null;
+        return $stmt->execute();
+
+        
     }
+
 
 }

@@ -1,6 +1,6 @@
 <?php
 
-require_once('controllers\companiesControllers.php');
+require_once('controllers/companiesControllers.php');
 require_once('controllers/contactsControllers.php');
 require_once('controllers/invoicesControllers.php');
 require_once('controllers/permissionsControllers.php');

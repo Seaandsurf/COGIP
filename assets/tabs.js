@@ -241,27 +241,30 @@ async function afficherAllCompanies() {
 }
 
 async function afficherLastContacts_dashboard() {
-    const table = document.getElementById("lastContacts_dashboard").querySelector("tbody");
-    const lastContacts = await getDataLimit("./backend/api.php/contacts", 5);
-    const rows = table.querySelectorAll("tr");
-  
-    lastContacts.forEach((last_contact, index) => {
-      if (index < rows.length) {
-        const cells = rows[index].querySelectorAll("td");
-        cells[0].textContent = last_contact.name;
-        cells[1].textContent = last_contact.company_name;
-        cells[2].textContent = last_contact.email;
-        cells[3].textContent = last_contact.phone;
-        cells[4].textContent = last_contact.created_at;
-        cells[5].textContent = last_contact.updated_at;
- 
-        const contactId = last_contact.id;
-        const updateBtn = rows[index].querySelector(".updateBtn a");
-        updateBtn.href = `http://localhost/COGIP/update-contacts.php?id=${contactId}`;
-      }
-    });
-  }
+  const table = document.getElementById("lastContacts_dashboard").querySelector("tbody");
+  const lastContacts = await getDataLimit("./backend/api.php/contacts", 5);
+  const rows = table.querySelectorAll("tr");
 
+  lastContacts.forEach((last_contact, index) => {
+    if (index < rows.length) {
+      const cells = rows[index].querySelectorAll("td");
+      cells[0].textContent = last_contact.name;
+      cells[1].textContent = last_contact.company_name;
+      cells[2].textContent = last_contact.email;
+      cells[3].textContent = last_contact.phone;
+      cells[4].textContent = last_contact.created_at;
+      cells[5].textContent = last_contact.updated_at;
+
+      const contactId = last_contact.id;
+      console.log(contactId);
+      const updateBtn = rows[index].querySelector(".updateBtn a");
+      updateBtn.href = `http://localhost/COGIP/update-contacts.php?id=${contactId}`;
+      const deleteBtn = rows[index].querySelector(".deleteBtn a");
+      deleteBtn.id = contactId;
+      console.log(contactId);
+    }
+  });
+}
 async function afficherLastCompanies_dashboard() {
   const table = document
     .getElementById("lastCompanies_dashboard")
@@ -284,6 +287,8 @@ async function afficherLastCompanies_dashboard() {
       const compayId = last_company.id;
         const updateBtn = rows[index].querySelector(".updateBtn a");
         updateBtn.href = `http://localhost/COGIP/update-company.html?id=${compayId}`;
+        const deleteBtn= rows[index].querySelector(".deleteBtn a");
+        deleteBtn.id =compayId;
     }
   });
 }
