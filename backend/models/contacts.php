@@ -65,8 +65,7 @@ class Contacts {
         $stmt->bindParam(':contactId', $contactId, PDO::PARAM_INT);
     
         return $stmt->execute();
-
-        
+ 
     }
 
 

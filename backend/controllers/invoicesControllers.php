@@ -1,9 +1,8 @@
 <?php 
-require_once('models/connexion.php');
-require_once('models/date.php');
-require_once('models/invoices.php');
-require_once('models/validation.php');
-
+require_once(__DIR__ . '/../models/connexion.php');
+require_once(__DIR__ . '/../models/date.php');
+require_once(__DIR__ . '/..//models/invoices.php');
+require_once(__DIR__ . '/../models/validation.php');
 class InvoicesController {
     public function getAll_invoices() {
         $limit = intval($_GET['limit'] ?? '-1');
@@ -39,6 +38,31 @@ class InvoicesController {
         } else {
             print('405 Method Not Allowed');
             exit();
+        }
+    }
+
+    public function get_invoiceByID($id) {
+        $pdo = connect_db();
+    
+        $sql = 'SELECT ref, price FROM invoices WHERE id = :id';
+    
+        $stmt = $pdo->prepare($sql);
+        $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+        $stmt->execute();
+    
+        $invoice = $stmt->fetch(PDO::FETCH_ASSOC);
+    
+        return $invoice ? $invoice: null;
+    }
+    public function update_invoice($ref, $price, $company_id, $invoiceID) {
+
+        $isUpdated = Invoices::update_invoices($ref, $price, $company_id,$invoiceID);
+    
+        if ($isUpdated) {
+            header('Location: http://localhost/COGIP/dashboard');
+            exit();
+        } else {     
+            return false;
         }
     }
 }

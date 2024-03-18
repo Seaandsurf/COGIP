@@ -20,7 +20,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $updatedName = $_POST['name'];
     $updatedPhone = $_POST['phone'];
     $updatedEmail = $_POST['mail'];
-    $companyId = $_POST['company-name']; // Corrected variable name
+    $companyId = $_POST['company-name'];
 
     $isUpdated = $contactsController->update_contact($updatedName, $updatedEmail, $updatedPhone, $companyId, $contactId); // Corrected variable names
 
