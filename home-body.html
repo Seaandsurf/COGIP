@@ -4,20 +4,33 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://cdn.tailwindcss.com"></script>
+    <script
+  src="https://kit.fontawesome.com/63380e220c.js"
+  crossorigin="anonymous"
+></script>
     <title>Document</title>
   </head>
 
-  <body>
-    <header class="bg-indigo-500 h-[787px] w-full flex flex-col max-h-fit">
-      <div class="flex space-x-3">
-        <div class="m-24 w-1/6">
+  <body class="w-screen h-screen">
+    <header class="bg-indigo-500">
+      <div class="flex justify-between">
+        <div class="md:mt-[95px] md:ml-[123px]">
           <a
-            class="px-1 text-5xl font-bold border-4 border-indigo-500"
+            class= "px-1 text-2xl md:text-5xl font-bold border-4 border-indigo-500"
             href="renvoie la page d'acceuil"
             >COGIP</a
           >
         </div>
-        <ul class="m-24 w-3/6 flex flex-nowrap">
+
+              <div class="lg:hidden">
+        <button class="navbar-burger flex items-center text-white p-3 md:hidden">
+          <svg class="block h-4 w-4 fill-current" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+            <title>Mobile menu</title>
+            <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path>
+          </svg>
+        </button>
+      </div>
+        <ul class="hidden md:block md:flex md:space-between md:mt-[95px]">
           <li
             class="inline-flex items-center text-white px-10 mx-5 text-xl hover:scale-[1.03] hover:outline-none duration-300 active:scale-[0.99]"
           >
@@ -39,11 +52,12 @@
             <a href="all-contacts.html">Contacts</a>
           </li>
         </ul>
-        <div class="m-24 w-2/6 space-x-6">
+
+        <div class="hidden md:block md:flex md:space-between md:mt-[95px] md:mr-[123px]">
           <a href="sign-up.html"
             ><button
               class="inline-flex items-center px-4 py-2 text-white text-xl transition ease-in-out delay-75 hover:bg-white hover:text-indigo-500 font-medium rounded-md hover:-translate-y-1 hover:scale-110 active:scale-[0.99]"
-            >
+          >
               Sign up
             </button></a
           >
@@ -55,7 +69,6 @@
           </button>
         </div>
       </div>
-
       <div id="login" class="mt-16 absolute top-32 right-32 z-10 hidden">
         <form
           class="w-full max-w-sm border-gray-200 border-2 p-8 rounded-md bg-slate-100"
@@ -71,7 +84,7 @@
             </div>
             <div class="md:w-2/3">
               <input
-                class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-indigo-500"
+                class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-indigo-500"
                 id="email"
                 type="text"
                 placeholder="john.doe@gmail.com"
@@ -89,7 +102,7 @@
             </div>
             <div class="md:w-2/3">
               <input
-                class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-indigo-500"
+                class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-indigo-500"
                 id="inline-password"
                 type="password"
                 placeholder="******************"
@@ -100,7 +113,7 @@
             <div class="md:w-1/3"></div>
             <div class="md:w-2/3">
               <button
-                class="shadow bg-indigo-500 hover:bg-indigo-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded"
+                class="shadow bg-indigo-500 hover:bg-indigo-400 focus:shadow-outline focus:outline-none text-white font-bold px-4 rounded"
                 type="button"
               >
                 Sign In
@@ -110,12 +123,12 @@
         </form>
       </div>
 
-      <div class="m-24 flex-col xl:flex items-top w-full space-x-3">
-        <p class="xl:w-1/2 xl:mx-10 text-left xl:text-[65px] xl:font-bold">
-          MANAGE YOUR CUSTOMERS AND INVOICES EASLY
+      <div class="flex flex-col md:flex-row md:mx-[123px] overflow-hidden">
+        <p class="m-6 p-8 text-4xl font-bold items-center text-left leading-1O md:text-[65px] md:leading-[68px]">
+          MANAGE YOUR CUSTOMERS AND INVOICES EASILY
         </p>
         <img
-          class="w-1/2 xl:absolute xl:inset-y-36 xl:right-0 xl:z-0"
+          class="max-h-[586px] w-auto"
           src="assets/img/main-home.png"
           alt=""
         />
@@ -136,22 +149,22 @@
         </svg>
       </div>
     </header>
-    <main class="px-[136px]">
+    <main class="w-screen mt-12 p-8">
     
-    <div class="mt-[86px]">
+    <div class="">
       <table
-        class="xl:w-[1193px] relative overflow-hidden z-10 bg-white p-8"
+        class="w-full relative overflow-hidden z-10 bg-white p-8"
       >
-        <h1 class="text-[65px] mb-12 text-black text-left font-bold">
+        <h1 class="mb-12 text-black text-4xl text-left font-bold">
           Last invoices
         </h1>
-        <tr class="bg-indigo-500 h-[55px] py-2 flex justify-self-start">
-          <th class="text-white w-1/5 text-[20px] text-left pl-8 py-2">
+        <tr class="bg-indigo-500 text-[12px] flex justify-between h-fit p-2">
+          <th class="text-white w-1/5 text-center">
             Invoice number
           </th>
-          <th class="text-white w-1/5 text-[20px] text-left py-2">Dates due</th>
-          <th class="text-white w-1/5 text-[20px] text-left py-2">Company</th>
-          <th class="text-white w-1/5 text-[20px] text-left py-2">
+          <th class="text-white w-1/5 text-center">Dates due</th>
+          <th class="text-white w-1/5 text-center">Company</th>
+          <th class="text-white w-1/5 text-center">
             Created at
           </th>
         </tr>
@@ -160,17 +173,17 @@
 
       <div class="mt-[86px]">
       <table
-        class="xl:w-[1193px] relative overflow-hidden z-10 bg-white p-8"
+        class="w-full relative overflow-hidden z-10 bg-white p-8"
       >
-        <h1 class="text-[65px] mb-24 text-black text-left font-bold mb-6">
+        <h1 class="text-4xl mb-12 text-black text-left font-bold mb-6">
           Last contacts
         </h1>
-        <tr class="bg-indigo-500 h-[55px] py-2 flex justify-self-start">
-          <th class="text-white w-1/6 text-[20px] text-left pl-8 py-2">Name</th>
-          <th class="text-white w-1/6 text-[20px] text-left py-2">Phone</th>
-          <th class="text-white w-1/6 text-[20px] text-left py-2">Mail</th>
-          <th class="text-white w-1/6 text-[20px] text-left py-2">Company</th>
-          <th class="text-white w-1/6 text-[20px] text-left py-2">
+        <tr class="bg-indigo-500 text-[12px] flex justify-between h-fit p-2">
+          <th class="text-white w-1/6 text-center">Name</th>
+          <th class="text-white w-1/6 text-center">Phone</th>
+          <th class="text-white w-1/6 text-center">Mail</th>
+          <th class="text-white w-1/6 text-center">Company</th>
+          <th class="text-white w-1/6 text-center">
             Created at
           </th>
         </tr>
@@ -180,30 +193,30 @@
       <!-- // LAST COMPANIES---------------------- -->
       <div class="mt-[86px]">
       <table
-        class="xl:w-[1193px] relative overflow-hidden z-10 bg-white p-8"
+        class="w-full relative overflow-hidden z-10 bg-white p-8"
       >
-        <h1 class="text-[65px] mb-12 text-black text-left font-bold mb-6">
+        <h1 class="text-4xl mb-12 text-black text-left font-bold mb-6">
           Last companies
         </h1>
-        <tr class="bg-indigo-500 h-[55px] py-2 flex justify-self-start">
-          <th class="text-white w-1/6 text-[20px] text-left pl-8 py-2">Name</th>
-          <th class="text-white w-1/6 text-[20px] text-left py-2">TVA</th>
-          <th class="text-white w-1/6 text-[20px] text-left py-2">Country</th>
-          <th class="text-white w-1/6 text-[20px] text-left py-2">Type</th>
-          <th class="text-white w-1/6 text-[20px] text-left py-2">
+        <tr class="bg-indigo-500 text-[12px]flex justify-between h-fit p-2">
+          <th class="text-white w-1/6 text-center">Name</th>
+          <th class="text-white w-1/6 text-center">TVA</th>
+          <th class="text-white w-1/6 text-center">Country</th>
+          <th class="text-white w-1/6 text-center">Type</th>
+          <th class="text-white w-1/6 text-center">
             Created at
           </th>
         </tr>
       </table>
       </div>
 
-      <div class="flex w-full mt-[86px]">
+      <div class="md:w-full mt-12 flex flex-col md:flex-row md:justify-center">
         <p
-          class="w-1/2 mx-10 text-[68px] font-black flex justify-center items-center max-w-[512px]"
+          class="text-4xl font-black md:text-[68px] md:w-1/2 md:ml-[5%] md:leading-[82px] md:text-left md:max-w-[511px]"
         >
           WORK BETTER IN YOUR COMPANY
         </p>
-        <div class="flex">
+        <div class="flex md:w-1/2 md:justify-center">
           <img
             class="w-1/2 z-10 h-96 w-auto flex justify-end"
             src="assets/img/mobile-asset.png"
@@ -225,24 +238,19 @@
         </div>
       </div>
     </main>
-    <footer class="m-32">
+<footer class="w-screen mt-32 md:p-12">
       <div class="mt-10 mb-10 h-px w-full border-t-2 border-indigo-500"></div>
 
-      <div class="flex w-full mb-10">
-        <div class="w-full ml-6">
-          <a class="text-5xl font-bold px-1 border-8 border-indigo-500" href=""
-            >COGIP</a
-          >
+      <div class="flex flex-col items-center justify-center w-full mb-10 md:flex-row">
+        <div class="w-screen flex justify-center items-center mb-4">
+          <a class="text-5xl font-bold text-center items-center px-1 border-8 border-indigo-500" href="">COGIP</a>
         </div>
-        <div class="w-full mr-32" style="color: rgba(115, 115, 115, 1)">
+        <div class="w-screen flex flex-col items-center justify-center" style="color: rgba(115, 115, 115, 1)">
           <div class="text-sm">
-            <i
-              class="fa-solid fa-location-dot mb-4"
-              style="color: rgb(99 102 241)"
-            ></i>
+            <i class="fa-solid fa-location-dot mb-4" style="color: rgb(2, 3, 44)"></i>
             Square des Martyrs, 6000 Charleroi
           </div>
-          <div class="flex justify-between text-sm">
+          <div class="flex flex-col justify-between text-sm">
             <div>
               <i class="fa-solid fa-phone" style="color: rgb(99 102 241)"></i>
               (123) 456-7890
@@ -252,51 +260,77 @@
               (123) 456-7890
             </div>
           </div>
-          <div class="flex justify-between mt-5 text-sm">
-            <div>Social Media</div>
-            <i
-              class="fa-brands fa-square-facebook"
-              style="color: rgb(99 102 241)"
-            ></i>
-            <i class="fa-brands fa-twitter" style="color: rgb(99 102 241)"></i>
-            <i
-              class="fa-brands fa-linkedin-in"
-              style="color: rgb(99 102 241)"
-            ></i>
-            <i class="fa-brands fa-youtube" style="color: rgb(99 102 241)"></i>
-            <i
-              class="fa-brands fa-instagram"
-              style="color: rgb(99 102 241)"
-            ></i>
-            <i
-              class="fa-brands fa-google-plus-g"
-              style="color: rgb(99 102 241)"
-            ></i>
-            <i
-              class="fa-brands fa-pinterest"
-              style="color: rgb(99 102 241)"
-            ></i>
-            <i class="fa-solid fa-rss" style="color: rgb(99 102 241)"></i>
+          <div class="flex flex-col justify-between mt-5 text-sm">
+            <div class="self-center">Social Media</div>
+            <div class="flex">
+            <i class="fa-brands m-2 fa-square-facebook" style="color: rgb(99 102 241)"></i>
+            <i class="fa-brands m-2 fa-twitter" style="color: rgb(99 102 241)"></i>
+            <i class="fa-brands m-2 fa-linkedin-in" style="color: rgb(99 102 241)"></i>
+            <i class="fa-brands m-2 fa-youtube" style="color: rgb(99 102 241)"></i>
+            <i class="fa-brands m-2 fa-instagram" style="color: rgb(99 102 241)"></i>
+            <i class="fa-brands m-2 fa-google-plus-g" style="color: rgb(99 102 241)"></i>
+            <i class="fa-brands m-2 fa-pinterest" style="color: rgb(99 102 241)"></i>
+            <i class="fa-solid m-2 fa-rss" style="color: rgb(99 102 241)"></i>
+            </div>
           </div>
         </div>
       </div>
 
-      <div
-        class="h-px w-full border-t-2 mb-10"
-        style="color: rgba(115, 115, 115, 1)"
-      ></div>
+      <div class="h-px w-full border-t-2 mb-10" style="color: rgba(115, 115, 115, 1)"></div>
 
-      <div class="flex w-full text-sm" style="color: rgba(115, 115, 115, 1)">
-        <ul class="flex w-3/5 justify-between cursor-pointer">
-          <li><a>Home</a></li>
-          <li><a>Invoices</a></li>
-          <li><a>Companies</a></li>
-          <li><a>Contacts</a></li>
-          <li><a>Privacy Policy</a></li>
+      <div class="flex flex-col md:flex-row justify-center items-center w-full text-s" style="color: rgba(115, 115, 115, 1)">
+        <ul class="flex flex-col md:flex-row w-3/5 md:justify-start cursor-pointer p-2">
+          <li class="mx-12"><a>Home</a></li>
+          <li class="mx-12"><a>Invoices</a></li>
+          <li class="mx-12"><a>Companies</a></li>
+          <li class="mx-12"><a>Contacts</a></li>
+          <li class="mx-12"><a>Privacy Policy</a></li>
         </ul>
-        <div class="flex w-2/5 justify-end">Copyright © 2022 • COGIP Inc.</div>
+        <div class="flex w-2/5 justify-end">Copyright © 2024 • COGIP Inc.</div>
       </div>
     </footer>
   </body>
   <script src="toggle-login.js" defer></script>
+  <script>
+      document.addEventListener('DOMContentLoaded', function() {
+      // open
+      const burger = document.querySelectorAll('.navbar-burger');
+      const menu = document.querySelectorAll('.navbar-menu');
+  
+      if (burger.length && menu.length) {
+          for (var i = 0; i < burger.length; i++) {
+              burger[i].addEventListener('click', function() {
+                  for (var j = 0; j < menu.length; j++) {
+                      menu[j].classList.toggle('hidden');
+                  }
+              });
+          }
+      }
+  
+      // close
+      const close = document.querySelectorAll('.navbar-close');
+      const backdrop = document.querySelectorAll('.navbar-backdrop');
+  
+      if (close.length) {
+          for (var i = 0; i < close.length; i++) {
+              close[i].addEventListener('click', function() {
+                  for (var j = 0; j < menu.length; j++) {
+                      menu[j].classList.toggle('hidden');
+                  }
+              });
+          }
+      }
+  
+      if (backdrop.length) {
+          for (var i = 0; i < backdrop.length; i++) {
+              backdrop[i].addEventListener('click', function() {
+                  for (var j = 0; j < menu.length; j++) {
+                      menu[j].classList.toggle('hidden');
+                  }
+              });
+          }
+      }
+  });
+  </script>
+  </script>
 </html>

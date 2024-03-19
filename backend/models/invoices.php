@@ -48,4 +48,19 @@ class Invoices {
     
         return $stmt->execute();
     }
+
+    public static function update_invoices($ref, $price, $id_company, $invoiceID) {
+        $pdo = connect_db();
+    
+        $sql = 'UPDATE invoices SET ref = :ref, price = :price, id_company = :id_company WHERE id = :invoiceId';
+    
+        $stmt = $pdo->prepare($sql);
+    
+        $stmt->bindParam(':ref', $ref, PDO::PARAM_STR);
+        $stmt->bindParam(':price', $price, PDO::PARAM_STR);
+        $stmt->bindParam(':id_company', $id_company, PDO::PARAM_INT);
+        $stmt->bindParam(':invoiceId', $invoiceID, PDO::PARAM_INT);
+    
+        return $stmt->execute();
+    }
 }

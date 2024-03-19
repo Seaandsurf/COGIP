@@ -1,6 +1,7 @@
 <?php
 
 require_once('C:\mamp\www\COGIP\backend\controllers\companiesControllers.php');
+require_once('controllers/companiesControllers.php');
 require_once('controllers/contactsControllers.php');
 require_once('controllers/invoicesControllers.php');
 require_once('controllers/permissionsControllers.php');

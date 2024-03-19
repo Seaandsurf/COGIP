@@ -11,14 +11,13 @@ function connect_db()
 }
 
 
- /*
-// alice
-function connect_db() {
-    $dsn = 'mysql:dbname=cogip;host=db';
-    $user = 'root';
-    $password = 'KWmuLNjpzseXcTUNcnpz';
-    $pdo = new PDO($dsn, $user, $password);
+ 
+// // alice
+// function connect_db() {
+//     $dsn = 'mysql:dbname=cogip;host=db';
+//     $user = 'root';
+//     $password = 'KWmuLNjpzseXcTUNcnpz';
+//     $pdo = new PDO($dsn, $user, $password);
 
-    return $pdo;
-}
-*/
+//     return $pdo;
+// }

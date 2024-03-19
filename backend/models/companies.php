@@ -51,4 +51,21 @@ class Companies {
     
         return $stmt->execute();
     }
+
+    public static function update_companies($name, $type_id, $tva, $country, $supplier, $companyId) {
+        $pdo = connect_db();
+    
+        $sql = 'UPDATE companies SET name = :name, type_id = :type_id, tva = :tva, country = :country, supplier = :supplier WHERE id = :companyId';
+    
+        $stmt = $pdo->prepare($sql);
+    
+        $stmt->bindParam(':name', $name, PDO::PARAM_STR);
+        $stmt->bindParam(':type_id', $type_id, PDO::PARAM_STR);
+        $stmt->bindParam(':tva', $tva, PDO::PARAM_STR);
+        $stmt->bindParam(':country', $country, PDO::PARAM_INT);
+        $stmt->bindParam(':supplier', $supplier, PDO::PARAM_BOOL);
+        $stmt->bindParam(':companyId', $companyId, PDO::PARAM_INT);
+    
+        return $stmt->execute();
+    }
 }
