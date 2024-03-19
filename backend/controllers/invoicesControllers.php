@@ -65,6 +65,12 @@ class InvoicesController {
             return false;
         }
     }
+    public function deleteInvoice() {
+        $invoiceId = intval($_GET['id']);       
+        Invoices::deleteInvoice($invoiceId);
+        header('Location: ../../dashboard.html');
+        exit();
+    }
 }
 
 

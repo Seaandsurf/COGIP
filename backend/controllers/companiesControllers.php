@@ -70,6 +70,13 @@ public function update_company($name, $type_id, $tva, $country, $companyId,$supp
         return false;
     }
 }
+
+public function deleteCompanie() {
+    $companyId = intval($_GET['id']);
+    Companies::deleteCompanie($companyId);
+    header('Location: ../../dashboard.html');
+    exit();
+}
 }
 
  

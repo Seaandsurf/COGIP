@@ -1,5 +1,7 @@
 <?php
 declare(strict_types=1);
+
+require_once 'connexion.php'; 
 class Companies {
     private string $name;
     private string $country;
@@ -68,4 +70,16 @@ class Companies {
     
         return $stmt->execute();
     }
-}
+
+    public static function deleteCompanie($companyId) {
+        $pdo = connect_db();
+    
+        $sql = 'DELETE FROM companies WHERE id = :companyId';
+    
+        $stmt = $pdo->prepare($sql);
+    
+        $stmt->bindParam(':companyId', $companyId, PDO::PARAM_INT);
+    
+        return $stmt->execute();
+    }
+}    
