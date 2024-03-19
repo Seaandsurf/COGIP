@@ -261,7 +261,7 @@ async function afficherLastContacts_dashboard() {
 
       const contactId = last_contact.id;
       const updateBtn = rows[index].querySelector(".updateBtn_contacts a");
-      updateBtn.href = `http://localhost/COGIP/update-contacts.php?id=${contactId}`;
+      updateBtn.href = `./COGIP/update-contacts.php?id=${contactId}`;
     }
   });
 }
@@ -287,7 +287,7 @@ async function afficherLastCompanies_dashboard() {
 
       const compayId = last_company.id;
       const updateBtn = rows[index].querySelector(".updateBtn a");
-      updateBtn.href = `http://localhost/COGIP/update_companies.php?id=${compayId}`;
+      updateBtn.href = `./COGIP/update_companies.php?id=${compayId}`;
       const deleteBtn = rows[index].querySelector(".deleteBtn");
       deleteBtn.id = compayId;
     }
@@ -317,7 +317,7 @@ async function afficherLastInvoices_dashboard() {
         `http://localhost/COGIP/update-invoices.html?id=${invoicesId}`
       );
       const updateBtn = rows[index].querySelector(".updateBtn a");
-      updateBtn.href = `http://localhost/COGIP/update-invoices.php?id=${invoicesId}`;
+      updateBtn.href = `./COGIP/update-invoices.php?id=${invoicesId}`;
       console.log(
         `http://localhost/COGIP/update-invoices.html?id=${invoicesId}`
       );
