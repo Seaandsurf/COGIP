@@ -73,10 +73,20 @@ public function update_company($name, $type_id, $tva, $country, $companyId,$supp
 
 public function deleteCompanie() {
     $companyId = intval($_GET['id']);
+
+    $contactsCount = Companies::countContactsByCompanyId($companyId);
+
+    if ($contactsCount > 0) {
+        echo '<script>alert("Vous ne pouvez pas supprimer cette entreprise car elle est associée à des contacts.");</script>';
+        echo '<script>window.location.href = "../../dashboard.html";</script>';
+        return; 
+    }
+
     Companies::deleteCompanie($companyId);
     header('Location: ../../dashboard.html');
     exit();
 }
+
 }
 
  

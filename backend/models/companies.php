@@ -82,4 +82,15 @@ class Companies {
     
         return $stmt->execute();
     }
+
+    public static function countContactsByCompanyId($companyId) {
+        $pdo = connect_db();
+
+        $sql = 'SELECT COUNT(*) FROM contacts WHERE company_id = :companyId';
+        $stmt = $pdo->prepare($sql);
+        $stmt->bindParam(':companyId', $companyId, PDO::PARAM_INT);
+        $stmt->execute();
+
+        return $stmt->fetchColumn();
+    }
 }    

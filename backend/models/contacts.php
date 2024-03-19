@@ -81,4 +81,5 @@ class Contacts {
 
         return $stmt->execute();
     }
+
 }
