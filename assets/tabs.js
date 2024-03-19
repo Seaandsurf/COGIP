@@ -1,6 +1,5 @@
 import { getDataLimit } from "./get_data.js";
 
-console.log("gfggffgfgiiiii")
 async function afficherLastInvoices() {
   const table = document.getElementById("lastInvoices").querySelector("tbody");
 
@@ -242,10 +241,7 @@ async function afficherAllCompanies() {
 }
 
 async function afficherLastContacts_dashboard() {
-  console.log("testopopopopo");
-  const table = document
-    .getElementById("lastContacts_dashboard")
-    .querySelector("tbody");
+  const table = document.getElementById("lastContacts_dashboard").querySelector("tbody");
   const lastContacts = await getDataLimit("./backend/api.php/contacts", 5);
   const rows = table.querySelectorAll("tr");
 
@@ -260,14 +256,20 @@ async function afficherLastContacts_dashboard() {
       cells[5].textContent = last_contact.updated_at;
 
       const contactId = last_contact.id;
-      const updateBtn = rows[index].querySelector(".updateBtn_contacts a");
-      updateBtn.href = `./COGIP/update-contacts.php?id=${contactId}`;
+      console.log(contactId);
+
+      const updateBtn = rows[index].querySelector(".updateBtn a");
+      updateBtn.href =` ./update-contacts.php?id=${contactId}`;
+
+      const deleteBtn = rows[index].querySelector(".deleteBtn a");
+      deleteBtn.href = `./backend/api.php/contact_delete?id=${contactId}`;
+
+      console.log(contactId);
     }
   });
 }
 
 async function afficherLastCompanies_dashboard() {
- console.log("testjhjhj");
   const table = document
     .getElementById("lastCompanies_dashboard")
     .querySelector("tbody");
@@ -275,6 +277,7 @@ async function afficherLastCompanies_dashboard() {
   const lastCompanies = await getDataLimit("./backend/api.php/companies", 5);
 
   const rows = table.querySelectorAll("tr");
+
 
   lastCompanies.forEach((last_company, index) => {
     if (index < rows.length) {
@@ -286,10 +289,9 @@ async function afficherLastCompanies_dashboard() {
       cells[4].textContent = last_company.updated_at;
 
       const compayId = last_company.id;
-      const updateBtn = rows[index].querySelector(".updateBtn a");
-      updateBtn.href = `./COGIP/update_companies.php?id=${compayId}`;
-      const deleteBtn = rows[index].querySelector(".deleteBtn");
-      deleteBtn.id = compayId;
+        const updateBtn = rows[index].querySelector(".updateBtn a");
+        updateBtn.href = `./update_companies.php?id=${compayId}`;
+        const deleteBtn= rows[index].querySelector(".deleteBtn a");
     }
   });
 }
@@ -298,8 +300,9 @@ async function afficherLastInvoices_dashboard() {
   const table = document
     .getElementById("lastInvoices_dashboard")
     .querySelector("tbody");
+
   const lastInvoices = await getDataLimit("./backend/api.php/invoices", 5);
-  console.log("test");
+
   const rows = table.querySelectorAll("tr");
 
   lastInvoices.forEach((last_invoice, index) => {
@@ -313,30 +316,22 @@ async function afficherLastInvoices_dashboard() {
       cells[5].textContent = last_invoice.updated_at;
 
       const invoicesId = last_invoice.id;
-      console.log(
-        `http://localhost/COGIP/update-invoices.html?id=${invoicesId}`
-      );
       const updateBtn = rows[index].querySelector(".updateBtn a");
-      updateBtn.href = `./COGIP/update-invoices.php?id=${invoicesId}`;
-      console.log(
-        `http://localhost/COGIP/update-invoices.html?id=${invoicesId}`
-      );
+      updateBtn.href = `./update-invoices.php?id=${invoicesId}`;
     }
   });
 }
-console.log("azazaz");
+
 async function main() {
-  console.log("testazazazazaz");
   afficherLastInvoices();
   afficherLastContacts();
   afficherLastCompanies();
   afficherAllInvoices();
   afficherAllContacts();
   afficherAllCompanies();
-  afficherLastInvoices_dashboard();
   afficherLastContacts_dashboard();
+  afficherLastInvoices_dashboard();
   afficherLastCompanies_dashboard();
 }
-
 // TODO Gestion des erreurs.
 main();

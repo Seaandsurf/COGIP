@@ -10,6 +10,7 @@ $routes = [
     '/invoice_new' => fn() => (new InvoicesController())->addNewInvoice(),
     '/contacts' => fn() => (new ContactsController())->getAll_contacts(),
     '/contact_new' => fn() => (new ContactsController())->addNewContact(),
+    '/contact_delete' => fn() => (new ContactsController())->deleteContact(),
     '/companies' => fn() => (new CompaniesController())->getAll_companies(),
     '/companies_new' => fn() => (new CompaniesController())->add_companie(),
     '/permissions' => fn() => (new PermissionsController())->getAll_permissions(),

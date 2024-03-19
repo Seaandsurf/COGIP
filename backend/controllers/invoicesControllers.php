@@ -59,7 +59,7 @@ class InvoicesController {
         $isUpdated = Invoices::update_invoices($ref, $price, $company_id,$invoiceID);
     
         if ($isUpdated) {
-            header('Location: http://localhost/COGIP/dashboard');
+            header('Location: ./COGIP/dashboard');
             exit();
         } else {     
             return false;

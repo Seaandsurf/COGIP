@@ -238,7 +238,7 @@
                   placeholder="Company name"
                 >
                   <script>
-                    fetch("http://localhost/COGIP/backend/api.php/companies")
+                    fetch("./backend/api.php/companies")
                       .then((response) => {
                         if (!response.ok) {
                           throw new Error("bip bip error");

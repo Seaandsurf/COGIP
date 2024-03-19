@@ -1,5 +1,7 @@
 <?php
 declare(strict_types=1);
+
+require_once 'connexion.php'; 
 class Contacts {
     private string $name;
     private string $email;
@@ -68,5 +70,15 @@ class Contacts {
  
     }
 
+    public static function deleteContact($contactId) {
+        $pdo = connect_db();
 
+        $sql = 'DELETE FROM contacts WHERE id = :contactId';
+
+        $stmt = $pdo->prepare($sql);
+
+        $stmt->bindParam(':contactId', $contactId, PDO::PARAM_INT);
+
+        return $stmt->execute();
+    }
 }
