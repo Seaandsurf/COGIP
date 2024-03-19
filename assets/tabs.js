@@ -3,10 +3,8 @@ import { getDataLimit } from "./get_data.js";
 async function afficherLastInvoices() {
   const table = document.getElementById("lastInvoices").querySelector("tbody");
 
-  // Va chercher les données depuis PHP.
   const lastInvoices = await getDataLimit("./backend/api.php/invoices", 5);
 
-  // Crée les lignes dans la table.
   lastInvoices.forEach((last_invoices) => {
     const tr = document.createElement("tr");
     tr.className = "py-8 border-collapse";
@@ -43,10 +41,8 @@ async function afficherLastInvoices() {
 async function afficherLastContacts() {
   const table = document.getElementById("lastContacts").querySelector("tbody");
 
-  // Va chercher les données depuis PHP.
   const LastContacts = await getDataLimit("./backend/api.php/contacts", 5);
 
-  // Crée les lignes dans la table.
   LastContacts.forEach((last_contacts) => {
     const tr = document.createElement("tr");
     tr.className = "py-8 border-collapse";
@@ -83,10 +79,8 @@ async function afficherLastContacts() {
 async function afficherLastCompanies() {
   const table = document.getElementById("lastCompanies").querySelector("tbody");
 
-  // Va chercher les données depuis PHP.
   const LastCompanies = await getDataLimit("./backend/api.php/companies", 5);
 
-  // Crée les lignes dans la table.
   LastCompanies.forEach((last_companies) => {
     const tr = document.createElement("tr");
     tr.className = "py-8 border-collapse";
@@ -123,10 +117,8 @@ async function afficherLastCompanies() {
 async function afficherAllInvoices() {
   const table = document.getElementById("allInvoices").querySelector("tbody");
 
-  // Va chercher les données depuis PHP.
   const AllInvoices = await getDataLimit("./backend/api.php/invoices");
 
-  // Crée les lignes dans la table.
   AllInvoices.forEach((all_invoices) => {
     const tr = document.createElement("tr");
     tr.className = "py-8 border-collapse";
@@ -163,10 +155,8 @@ async function afficherAllInvoices() {
 async function afficherAllContacts() {
   const table = document.getElementById("allContacts").querySelector("tbody");
 
-  // Va chercher les données depuis PHP.
   const AllContacts = await getDataLimit("./backend/api.php/contacts");
 
-  // Crée les lignes dans la table.
   AllContacts.forEach((all_contacts) => {
     const tr = document.createElement("tr");
     tr.className = "py-8 border-collapse";
@@ -203,10 +193,8 @@ async function afficherAllContacts() {
 async function afficherAllCompanies() {
   const table = document.getElementById("allCompanies").querySelector("tbody");
 
-  // Va chercher les données depuis PHP.
   const AllCompanies = await getDataLimit("./backend/api.php/companies");
 
-  // Crée les lignes dans la table.
   AllCompanies.forEach((all_companies) => {
     const tr = document.createElement("tr");
     tr.className = "py-8 border-collapse";
@@ -241,7 +229,9 @@ async function afficherAllCompanies() {
 }
 
 async function afficherLastContacts_dashboard() {
-  const table = document.getElementById("lastContacts_dashboard").querySelector("tbody");
+  const table = document
+    .getElementById("lastContacts_dashboard")
+    .querySelector("tbody");
   const lastContacts = await getDataLimit("./backend/api.php/contacts", 5);
   const rows = table.querySelectorAll("tr");
 
@@ -256,15 +246,12 @@ async function afficherLastContacts_dashboard() {
       cells[5].textContent = last_contact.updated_at;
 
       const contactId = last_contact.id;
-      console.log(contactId);
 
       const updateBtn = rows[index].querySelector(".updateBtn a");
-      updateBtn.href =` ./update-contacts.php?id=${contactId}`;
+      updateBtn.href = ` ./update-contacts.php?id=${contactId}`;
 
       const deleteBtn = rows[index].querySelector(".deleteBtn a");
       deleteBtn.href = `./backend/api.php/contact_delete?id=${contactId}`;
-
-      console.log(contactId);
     }
   });
 }
@@ -278,7 +265,6 @@ async function afficherLastCompanies_dashboard() {
 
   const rows = table.querySelectorAll("tr");
 
-
   lastCompanies.forEach((last_company, index) => {
     if (index < rows.length) {
       const cells = rows[index].querySelectorAll("td");
@@ -289,9 +275,9 @@ async function afficherLastCompanies_dashboard() {
       cells[4].textContent = last_company.updated_at;
 
       const compayId = last_company.id;
-        const updateBtn = rows[index].querySelector(".updateBtn a");
-        updateBtn.href = `./update_companies.php?id=${compayId}`;
-        const deleteBtn= rows[index].querySelector(".deleteBtn a");
+      const updateBtn = rows[index].querySelector(".updateBtn a");
+      updateBtn.href = `./update-companies.php?id=${compayId}`;
+      const deleteBtn = rows[index].querySelector(".deleteBtn a");
     }
   });
 }
@@ -333,5 +319,5 @@ async function main() {
   afficherLastInvoices_dashboard();
   afficherLastCompanies_dashboard();
 }
-// TODO Gestion des erreurs.
+
 main();

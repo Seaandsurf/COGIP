@@ -9,8 +9,6 @@ class ContactsController {
     
         $contacts = Contacts::getAllContactsWithCompanyName($limit);
         formatDataDates($contacts, ['created_at', 'updated_at']);
-            
-        // Défini dans "indexController.inc.php".
         sendJson($contacts);
     }     
 
@@ -19,7 +17,6 @@ class ContactsController {
         $validation_phone = new validation();
         $validation_mail = new validation();
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            // Call Validation
 
             $name = $_POST['name'];
             $email = $_POST['mail'];
@@ -32,7 +29,7 @@ class ContactsController {
             && $validation_mail->email_Input($email)){
 
             $res = Contacts::insertContacts($name, $email, $phone, $company_id);
-            header('Location: http://localhost:8080/COGIP/dashboard-contacts.html');
+            header('Location: ../../dashboard-contacts.html');
             exit();
         } else {
             echo "veuillez remplir tous les champs du formulaire avec les donnés adéquate <br>";
@@ -67,7 +64,7 @@ class ContactsController {
         $isUpdated = Contacts::update_Contacts($name, $email, $phone, $company_id, $contactId);
     
         if ($isUpdated) {
-            header('Location: ./COGIP/dashboard');
+            header('Location: ./dashboard.html');
             exit();
         } else {
             return false;

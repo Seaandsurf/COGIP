@@ -11,7 +11,6 @@ class CompaniesController {
         $companies = Companies::getAllCompaniesWithTypeName($limit);
         formatDataDates($companies, ['created_at', 'updated_at']);
         
-        // Défini dans "indexController.inc.php".
         sendJson($companies);
     }
 
@@ -32,7 +31,7 @@ public function add_companie (){
       
             $supplier_bool = filter_var($supplier, FILTER_VALIDATE_BOOLEAN);
             $success = Companies::add_companies($name, $country, $tva, $type_id, $supplier_bool);
-            header('Location: http://localhost/COGIP/dashboard-companies.html');
+            header('Location: ../../dashboard-companies.html');
             exit();
 
         } else {
@@ -65,7 +64,7 @@ public function update_company($name, $type_id, $tva, $country, $companyId,$supp
     $isUpdated = Companies::update_companies($name, $type_id, $tva, $country, $supplier, $companyId);
 
     if ($isUpdated) {
-        header('Location: http://localhost/COGIP/dashboard');
+        header('Location: ./dashboard');
         exit();
     } else {
         return false;

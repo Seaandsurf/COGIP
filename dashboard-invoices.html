@@ -102,7 +102,7 @@
                         <label for="price"></label>
                         <select id="invoices_companyName" name="company-name" class="bg-slate-100 mt-11 p-2" type="text" placeholder="Company name">
                         <script>
-                            fetch('http://localhost/COGIP/backend/api.php/companies')
+                            fetch('./backend/api.php/companies')
                                 .then(response => {
                                     if (!response.ok) {
                                         throw new Error('bip bip error');

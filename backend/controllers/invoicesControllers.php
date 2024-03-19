@@ -15,7 +15,7 @@ class InvoicesController {
         $validation_reference = new validation();
         $validation_price= new validation();
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            // Call Validation
+
             $ref = $_POST['reference'];
             $id_company = $_POST['company-name'];
             $price = $_POST['price'];
@@ -26,7 +26,7 @@ class InvoicesController {
     && $validation_price->number_Input($price)){
 
             $res = Invoices::insertInvoices($ref, $id_company, $price, $date_due);
-            header('Location: http://localhost/COGIP/dashboard-invoices.html');
+            header('Location:../../dashboard-invoices.html');
             exit();
         }else {
             echo "veuillez remplir tous les champs du formulaire avec les donnés adéquate <br>";
@@ -59,7 +59,7 @@ class InvoicesController {
         $isUpdated = Invoices::update_invoices($ref, $price, $company_id,$invoiceID);
     
         if ($isUpdated) {
-            header('Location: ./COGIP/dashboard');
+            header('Location: ./dashboard');
             exit();
         } else {     
             return false;

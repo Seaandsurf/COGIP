@@ -3,7 +3,6 @@ require_once('backend/controllers//invoicesControllers.php');
 require_once('backend/models/invoices.php');
 
 $invoiceId = isset($_GET['id']) ? $_GET['id'] : null;
-echo $invoiceId ;
 
 $invoicesController = new InvoicesController();
 $invoice = $invoicesController->get_invoiceByID($invoiceId);

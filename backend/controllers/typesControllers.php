@@ -1,6 +1,6 @@
 <?php 
-require_once('models/date.php');
-require_once('models/types.php');
+require_once(__DIR__ . '/../models/date.php');
+require_once(__DIR__ . '/../models/types.php');
 class TypesController {
 
     public function getAll_types() {
@@ -9,10 +9,8 @@ class TypesController {
         $types = Types::getAll($limit);
         formatDataDates($types, ['created_at', 'updated_at']);
         
-        // Défini dans "indexController.inc.php".
         sendJson($types);
 
     }
-
 
 }
