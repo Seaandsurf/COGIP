@@ -52,7 +52,7 @@
                 />
                 <path d="M0.354858 6.03223H21.2903" stroke="#9698D6" />
               </svg>
-              <a href="dashboard.html" class="text-[10px] self-center">
+              <a href="./dashboard.html" class="text-[10px] self-center">
                 Dashboard</a
               >
             </li>
@@ -77,7 +77,7 @@
                   stroke="#9698D6"
                 />
               </svg>
-              <a href="dashboard-invoices.html" class="text-[10px] self-center">
+              <a href="./dashboard-invoices.html" class="text-[10px] self-center">
                 Invoices</a
               >
             </li>
@@ -112,7 +112,7 @@
                 />
               </svg>
               <a
-                href="dashboard-companies.html"
+                href="./dashboard-companies.html"
                 class="text-[10px] self-center"
               >
                 Companies</a
@@ -142,7 +142,7 @@
                 <circle cx="11" cy="8.41174" r="4.02941" stroke="#9698D6" />
               </svg>
               <a
-                href="dashboard-contacts.html"
+                href="./dashboard-contacts.html"
                 class="text-[10px] self-center font-bold"
               >
                 Contacts</a
@@ -199,7 +199,7 @@
                   class="w-16 h-16 rounded-full bg-indigo-300 flex items-center"
                 >
                 <script>
-                  fetch('http://localhost/COGIP/backend/api.php/contacts')
+                  fetch('./backend/api.php/contacts')
                     .then(response => {
                       if (!response.ok) {
                         throw new Error('Failed to fetch data from the API');
@@ -228,7 +228,7 @@
                   class="w-16 h-16 rounded-full bg-indigo-300 flex items-center"
                 >
                 <script>
-                  fetch('http://localhost/COGIP/backend/api.php/invoices')
+                  fetch('./backend/api.php/invoices')
                     .then(response => {
                       if (!response.ok) {
                         throw new Error('Failed to fetch data from the API');
@@ -257,7 +257,7 @@
                   class="w-16 h-16 rounded-full bg-indigo-300 flex items-center"
                 >
                 <script>
-                  fetch('http://localhost/COGIP/backend/api.php/companies')
+                  fetch('./backend/api.php/companies')
                     .then(response => {
                       if (!response.ok) {
                         throw new Error('Failed to fetch data from the API');
