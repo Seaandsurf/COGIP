@@ -37,4 +37,17 @@ class Users {
 
         return $users;
     }
+    public static function add_users($first_name, $last_name, $password, $email, $role_id) {
+        $pdo = connect_db();
+    
+        $sql = 'INSERT INTO users (first_name, last_name, password, email, role_id) VALUES (:first_name, :last_name, :password, :email, :role_id)';
+        $stmt = $pdo->prepare($sql);
+        $stmt->bindParam(':first_name', $first_name, PDO::PARAM_STR);
+        $stmt->bindParam(':last_name', $last_name, PDO::PARAM_STR);
+        $stmt->bindParam(':password', $password, PDO::PARAM_STR);
+        $stmt->bindParam(':email', $email, PDO::PARAM_STR);
+        $stmt->bindParam(':role_id', $role_id, PDO::PARAM_BOOL);
+    
+        return $stmt->execute();
+    }
 }

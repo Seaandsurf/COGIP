@@ -17,6 +17,7 @@ $routes = [
     '/roles' => fn() => (new RolesController())->getAll_roles(),
     '/types' => fn() => (new TypesController())->getAll_types(),
     '/users' => fn() => (new UsersController())->getAll_users(),
+    '/users_new' => fn() => (new UsersController())->add_user(),
 ];
 
 $path = $_SERVER['PATH_INFO'];

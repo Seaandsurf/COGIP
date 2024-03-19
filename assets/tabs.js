@@ -10,7 +10,7 @@ async function afficherLastInvoices() {
     tr.className = "py-8 border-collapse";
 
     const td1 = document.createElement("td");
-    td1.className = "pl-2 pb-2 bg-red-500";
+    td1.className = "pl-2 ";
     td1.innerText = last_invoices.ref;
 
     const td2 = document.createElement("td");
@@ -48,7 +48,7 @@ async function afficherLastContacts() {
     tr.className = "py-8 border-collapse";
 
     const td1 = document.createElement("td");
-    td1.className = "pl-2 pb-2 bg-red-500";
+    td1.className = "pl-2";
     td1.innerText = last_contacts.name;
 
     const td2 = document.createElement("td");
@@ -86,7 +86,7 @@ async function afficherLastCompanies() {
     tr.className = "py-8 border-collapse";
 
     const td1 = document.createElement("td");
-    td1.className = "pl-2 pb-2 bg-red-500";
+    td1.className = "pl-2 ";
     td1.innerText = last_companies.name;
 
     const td2 = document.createElement("td");
@@ -124,7 +124,7 @@ async function afficherAllInvoices() {
     tr.className = "py-8 border-collapse";
 
     const td1 = document.createElement("td");
-    td1.className = "pl-2 pb-2 bg-red-500";
+    td1.className = "pl-2 ";
     td1.innerText = all_invoices.ref;
 
     const td2 = document.createElement("td");
@@ -162,7 +162,7 @@ async function afficherAllContacts() {
     tr.className = "py-8 border-collapse";
 
     const td1 = document.createElement("td");
-    td1.className = "pl-2 pb-2 bg-red-500";
+    td1.className = "pl-2 ";
     td1.innerText = all_contacts.name;
 
     const td2 = document.createElement("td");
@@ -200,7 +200,7 @@ async function afficherAllCompanies() {
     tr.className = "py-8 border-collapse";
 
     const td1 = document.createElement("td");
-    td1.className = "pl-2 pb-2 bg-red-500";
+    td1.className = "pl-2 ";
     td1.innerText = all_companies.name;
 
     const td2 = document.createElement("td");
