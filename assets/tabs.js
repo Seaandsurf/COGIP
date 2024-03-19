@@ -277,6 +277,9 @@ async function afficherLastCompanies_dashboard() {
       const compayId = last_company.id;
       const updateBtn = rows[index].querySelector(".updateBtn a");
       updateBtn.href = `./update-companies.php?id=${compayId}`;
+
+      const deleteBtn = rows[index].querySelector(".deleteBtn a");
+      deleteBtn.href = `./backend/api.php/companies_delete?id=${compayId}`;
   
     }
   });
@@ -304,6 +307,9 @@ async function afficherLastInvoices_dashboard() {
       const invoicesId = last_invoice.id;
       const updateBtn = rows[index].querySelector(".updateBtn a");
       updateBtn.href = `./update-invoices.php?id=${invoicesId}`;
+
+      const deleteBtn = rows[index].querySelector(".deleteBtn a");
+      deleteBtn.href = `./backend/api.php/invoices_delete?id=${invoicesId}`;
     }
   });
 }

@@ -8,11 +8,13 @@ require_once('controllers/indexControllers.inc.php');
 $routes = [
     '/invoices' => fn() => (new InvoicesController())->getAll_invoices(),
     '/invoice_new' => fn() => (new InvoicesController())->addNewInvoice(),
+    '/invoices_delete' => fn() => (new InvoicesController())->deleteInvoice(),
     '/contacts' => fn() => (new ContactsController())->getAll_contacts(),
     '/contact_new' => fn() => (new ContactsController())->addNewContact(),
     '/contact_delete' => fn() => (new ContactsController())->deleteContact(),
     '/companies' => fn() => (new CompaniesController())->getAll_companies(),
     '/companies_new' => fn() => (new CompaniesController())->add_companie(),
+    '/companies_delete' => fn() => (new CompaniesController())->deleteCompanie(),
     '/permissions' => fn() => (new PermissionsController())->getAll_permissions(),
     '/roles' => fn() => (new RolesController())->getAll_roles(),
     '/types' => fn() => (new TypesController())->getAll_types(),

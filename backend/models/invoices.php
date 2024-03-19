@@ -1,5 +1,7 @@
 <?php
 declare(strict_types=1);
+
+require_once 'connexion.php'; 
 class Invoices {
     private string $ref;
     private string $created_at;
@@ -61,6 +63,18 @@ class Invoices {
         $stmt->bindParam(':id_company', $id_company, PDO::PARAM_INT);
         $stmt->bindParam(':invoiceId', $invoiceID, PDO::PARAM_INT);
     
+        return $stmt->execute();
+    }
+
+    public static function deleteInvoice($invoiceId) {
+        $pdo = connect_db();
+
+        $sql = 'DELETE FROM invoices WHERE id = :invoiceId';
+
+        $stmt = $pdo->prepare($sql);
+
+        $stmt->bindParam(':invoiceId', $invoiceId, PDO::PARAM_INT);
+
         return $stmt->execute();
     }
 }
