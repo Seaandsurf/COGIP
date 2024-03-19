@@ -277,7 +277,7 @@ async function afficherLastCompanies_dashboard() {
       const compayId = last_company.id;
       const updateBtn = rows[index].querySelector(".updateBtn a");
       updateBtn.href = `./update-companies.php?id=${compayId}`;
-      const deleteBtn = rows[index].querySelector(".deleteBtn a");
+  
     }
   });
 }

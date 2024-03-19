@@ -52,7 +52,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
   <select id="type_id" name="type_id" class="bg-slate-100 mt-11 p-2">
                             <script>
                                 
-                                fetch('http://localhost/COGIP/backend/api.php/types')
+                                fetch('./COGIP/backend/api.php/types')
                                     .then(response => {
                                         if (!response.ok) {
                                             throw new Error('bip bip error');
