@@ -9,7 +9,6 @@
     ></script>
     <script src="https://cdn.tailwindcss.com"></script>
    <script type="module" src="./assets/tabs.js"></script>
-    <!-- <script type="module" src="assets\tabs_2.js"></script> -->
     <title>Dashboard</title>
   </head>
 
@@ -199,7 +198,7 @@
                   class="w-16 h-16 rounded-full bg-indigo-300 flex items-center"
                 >
                 <script>
-                  fetch('http://localhost/COGIP/backend/api.php/contacts')
+                  fetch('./backend/api.php/contacts')
                     .then(response => {
                       if (!response.ok) {
                         throw new Error('Failed to fetch data from the API');
@@ -228,7 +227,7 @@
                   class="w-16 h-16 rounded-full bg-indigo-300 flex items-center"
                 >
                 <script>
-                  fetch('http://localhost/COGIP/backend/api.php/invoices')
+                  fetch('./backend/api.php/invoices')
                     .then(response => {
                       if (!response.ok) {
                         throw new Error('Failed to fetch data from the API');
@@ -257,7 +256,7 @@
                   class="w-16 h-16 rounded-full bg-indigo-300 flex items-center"
                 >
                 <script>
-                  fetch('http://localhost/COGIP/backend/api.php/companies')
+                  fetch('./backend/api.php/companies')
                     .then(response => {
                       if (!response.ok) {
                         throw new Error('Failed to fetch data from the API');
@@ -419,9 +418,7 @@
                             <td></td>
                             <td>
           
-                              <button class="deleteBtn">
-                                <a href="#" onclick="return confirm('Êtes-vous sûr de vouloir supprimer ?');">Delete</a>
-                              </button>
+                              <button class="deleteBtn">Delete</button>
                               <button class="updateBtn">
                                   <a href="#">Update</a>
                               </button>
@@ -435,9 +432,7 @@
                             <td></td>
                             <td></td>
                             <td>
-                              <button class="deleteBtn">
-                                <a href="#" onclick="return confirm('Êtes-vous sûr de vouloir supprimer ?');">Delete</a>
-                              </button>
+                              <button class="deleteBtn">Delete</button>
     <button class="updateBtn">
         <a href="#">Update</a>
     </button>
@@ -451,9 +446,7 @@
                             <td></td>
                             <td></td>
                             <td>
-                              <button class="deleteBtn">
-                                <a href="#" onclick="return confirm('Êtes-vous sûr de vouloir supprimer ?');">Delete</a>
-                              </button>
+                              <button class="deleteBtn">Delete</button>
                               <button class="updateBtn">
                                   <a href="#">Update</a>
                               </button>
@@ -467,9 +460,7 @@
                             <td></td>
                             <td></td>
                             <td>
-                              <button class="deleteBtn">
-                                <a href="#" onclick="return confirm('Êtes-vous sûr de vouloir supprimer ?');">Delete</a>
-                              </button>
+                              <button class="deleteBtn">Delete</button>
     <button class="updateBtn">
         <a href="#">Update</a>
     </button>
@@ -483,9 +474,7 @@
                             <td></td>
                             <td></td>
                             <td>
-                              <button class="deleteBtn">
-                                <a href="#" onclick="return confirm('Êtes-vous sûr de vouloir supprimer ?');">Delete</a>
-                              </button>
+                              <button class="deleteBtn">Delete</button>
                               <button class="updateBtn">
                                   <a href="#">Update</a>
                               </button>
@@ -522,9 +511,7 @@
                             <td></td>
                             <td></td>
                             <td>
-                              <button class="deleteBtn">
-                                <a href="#" onclick="return confirm('Êtes-vous sûr de vouloir supprimer ?');">Delete</a>
-                              </button>
+                                <button class="deleteBtn">Delete</button>
                                 <button class="updateBtn">
                                   <a href=#">Update</a>
                                 </button>
@@ -537,9 +524,7 @@
                           <td></td>
                           <td></td>
                           <td>
-                            <button class="deleteBtn">
-                              <a href="#" onclick="return confirm('Êtes-vous sûr de vouloir supprimer ?');">Delete</a>
-                            </button>
+                              <button class="deleteBtn">Delete</button>
                               <button class="updateBtn">
                                 <a href="#">Update</a>
                               </button>
@@ -551,9 +536,7 @@
                         <td></td>
                         <td></td>
                         <td>
-                          <button class="deleteBtn">
-                            <a href="#" onclick="return confirm('Êtes-vous sûr de vouloir supprimer ?');">Delete</a>
-                          </button>
+                            <button class="deleteBtn">Delete</button>
                             <button class="updateBtn">
                               <a href="#">Update</a>
                             </button>
@@ -565,9 +548,7 @@
                       <td></td>
                       <td></td>
                       <td>
-                        <button class="deleteBtn">
-                          <a href="#" onclick="return confirm('Êtes-vous sûr de vouloir supprimer ?');">Delete</a>
-                        </button>
+                          <button class="deleteBtn">Delete</button>
                           <button class="updateBtn">
                             <a href="#">Update</a>
                           </button>
@@ -579,9 +560,7 @@
                     <td></td>
                     <td></td>
                     <td>
-                      <button class="deleteBtn">
-                        <a href="#" onclick="return confirm('Êtes-vous sûr de vouloir supprimer ?');">Delete</a>
-                      </button>
+                        <button class="deleteBtn">Delete</button>
                         <button class="updateBtn">
                           <a href="#">Update</a>
                         </button>
