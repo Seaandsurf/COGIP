@@ -164,8 +164,8 @@ There is a Dashboard button
 ## Mobile 📱
 
 
+<img src="https://github.com/Riojardo/COGIP/tree/main/assets/img/ScreenShots/Mobile/mb-home-body.png" alt="mb-home-body"/> 
 
-![mb-home-body](https://github.com/Riojardo/COGIP/tree/main/assets/img/ScreenShots/Mobile/mb-home-body.png) 
 ![mb-home-body-2](mb-home-body-2.png)
 ![mb-footer](mb-footer-1.png)
 ![mb-show-company](mb-show-company.png) 
