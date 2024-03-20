@@ -157,7 +157,7 @@ function connect_db() {
 You can access to the [Dashboard](https://alice-becode.funquality.be/COGIP/dashboard.html) in the __footer__!
 
 There is a Dashboard button 
-![alt text](dashboard-access.png)
+
 
 # 📸 Screenshots
 
@@ -165,7 +165,7 @@ There is a Dashboard button
 
 
 
-![mb-home-body](mb-home-body.png) 
+![mb-home-body](https://github.com/Riojardo/COGIP/tree/main/assets/img/ScreenShots/Mobile/mb-home-body.png) 
 ![mb-home-body-2](mb-home-body-2.png)
 ![mb-footer](mb-footer-1.png)
 ![mb-show-company](mb-show-company.png) 
