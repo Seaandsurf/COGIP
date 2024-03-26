@@ -164,33 +164,19 @@ There is a Dashboard button
 ## Mobile 📱
 
 
-<img src="https://github.com/Riojardo/COGIP/tree/main/assets/img/ScreenShots/Mobile/mb-home-body.png" alt="mb-home-body"/> 
-
-![mb-home-body-2](https://github.com/Riojardo/COGIP/tree/main/assets/img/ScreenShots/Mobile/mb-home-body.png)
-![mb-footer](https://github.com/Riojardo/COGIP/tree/main/assets/img/ScreenShots/Mobile/mb-footer.png)
-![mb-show-company](https://github.com/Riojardo/COGIP/tree/main/assets/img/ScreenShots/Mobile/mb-show-company.png) 
-![mb-show-contact](https://github.com/Riojardo/COGIP/tree/main/assets/img/ScreenShots/Mobile/mb-show-contact.png)
-![mb-dashboard](https://github.com/Riojardo/COGIP/tree/main/assets/img/ScreenShots/Mobile/mb-dashboard.png)
-![mb-dashboard-companies](https://github.com/Riojardo/COGIP/tree/main/assets/img/ScreenShots/Mobile/mb-dashboard-companies.png) 
-![mb-dashboard-contacts](https://github.com/Riojardo/COGIP/tree/main/assets/img/ScreenShots/Mobile/mb-dashboard-contacts.png) 
-![mb-dashboard-invoices](https://github.com/Riojardo/COGIP/tree/main/assets/img/ScreenShots/Mobile/mb-dashboard-invoices.png) 
-
-
-
+<img src="https://github.com/Riojardo/COGIP/blob/main/assets/img/ScreenShots/Mobile/mb-home-body.png"/>  <img src="https://github.com/Riojardo/COGIP/blob/main/assets/img/ScreenShots/Mobile/mb-footer.png"/> 
+<img src="https://github.com/Riojardo/COGIP/blob/main/assets/img/ScreenShots/Mobile/mb-show-company.png"/>  <img src="https://github.com/Riojardo/COGIP/blob/main/assets/img/ScreenShots/Mobile/mb-show-contact.png"/> 
+<img src="https://github.com/Riojardo/COGIP/blob/main/assets/img/ScreenShots/Mobile/mb-dashboard.png"/>  <img src="https://github.com/Riojardo/COGIP/blob/main/assets/img/ScreenShots/Mobile/mb-dashboard-companies.png"/> 
+<img src="https://github.com/Riojardo/COGIP/blob/main/assets/img/ScreenShots/Mobile/mb-dashboard-contacts.png"/>  <img src="https://github.com/Riojardo/COGIP/blob/main/assets/img/ScreenShots/Mobile/mb-dashboard-invoices.png"/> 
 
 
 ## DESKTOP 💻
 
-![home-body](https://github.com/Riojardo/COGIP/tree/main/assets/img/ScreenShots/Desktop/home-body.png)
-![home-body-login](https://github.com/Riojardo/COGIP/tree/main/assets/img/ScreenShots/Desktop/home-body-login.png)
-![footer](https://github.com/Riojardo/COGIP/tree/main/assets/img/ScreenShots/Desktop/footer.png)
-![sign-up](https://github.com/Riojardo/COGIP/tree/main/assets/img/ScreenShots/Desktop/sign-up.png)
-![tabs](https://github.com/Riojardo/COGIP/tree/main/assets/img/ScreenShots/Desktop/tabs.png)
-![show-company(1)](https://github.com/Riojardo/COGIP/tree/main/assets/img/ScreenShots/Desktop/show-company(1).png)
-![show-company(2](https://github.com/Riojardo/COGIP/tree/main/assets/img/ScreenShots/Desktop/show-company(2).png)
-![show-contact](https://github.com/Riojardo/COGIP/tree/main/assets/img/ScreenShots/Desktop/show-contact.png)
-![dashboard](https://github.com/Riojardo/COGIP/tree/main/assets/img/ScreenShots/Desktop/dashboard.png)
-![dashboard-companie](https://github.com/Riojardo/COGIP/tree/main/assets/img/ScreenShots/Desktop/dashboard-companies.png)
-![dashboard-contacts](https://github.com/Riojardo/COGIP/tree/main/assets/img/ScreenShots/Desktop/dashboard-contacts.png)
-![dashboard-invoices](https://github.com/Riojardo/COGIP/tree/main/assets/img/ScreenShots/Desktop/dashboard-invoices.png)
+<img src="https://github.com/Riojardo/COGIP/blob/main/assets/img/ScreenShots/Desktop/home-body.pngg"/> <img src="https://github.com/Riojardo/COGIP/blob/main/assets/img/ScreenShots/Desktop/home-body-login.png"/>
+<img src="https://github.com/Riojardo/COGIP/blob/main/assets/img/ScreenShots/Desktop/footer.png"/> <img src="https://github.com/Riojardo/COGIP/blob/main/assets/img/ScreenShots/Desktop/sign-up.png"/>
+<img src="https://github.com/Riojardo/COGIP/blob/main/assets/img/ScreenShots/Desktop/tabs.png"/> <img src="https://github.com/Riojardo/COGIP/blob/main/assets/img/ScreenShots/Desktop/show-company(1).png"/>
+<img src="https://github.com/Riojardo/COGIP/blob/main/assets/img/ScreenShots/Desktop/show-company(2).png"/> <img src="https://github.com/Riojardo/COGIP/blob/main/assets/img/ScreenShots/Desktop/show-contact.png"/>
+<img src="https://github.com/Riojardo/COGIP/blob/main/assets/img/ScreenShots/Desktop/dashboard.png"/> <img src="https://github.com/Riojardo/COGIP/blob/main/assets/img/ScreenShots/Desktop/dashboard-companies.png"/>
+<img src="https://github.com/Riojardo/COGIP/blob/main/assets/img/ScreenShots/Desktop/dashboard-contacts.png"/> <img src="https://github.com/Riojardo/COGIP/blob/main/assets/img/ScreenShots/Desktop/dashboard-invoices.png"/>
+
 
